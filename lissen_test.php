@@ -39,6 +39,16 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
+	<script>
+		<?php
+			if(isset($_GET['oke'])){
+				echo "alert('To`g`ri javob tanlandi');";
+			}
+			if(isset($_GET['err'])){
+				echo "alert('Noto`g`ri javob tanlandi');";
+			}
+		?>
+	</script>
 </head>
 <body id="body">
 	<div id="preloder">
@@ -112,70 +122,56 @@
 				<div class="col-lg-9">
 					<h3>Mavzuga oid testlar</h3>
 					<div class="container mb-5">
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 1 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javobni tanlang</p>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="javob" id="javob1" value="option1" required>
-								<label class="form-check-label" for="javob1">Default radio</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="javob" id="javob2" value="option2" required>
-								<label class="form-check-label" for="javob">Second default radio</label>
-							</div>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
+						<?php
+							$sql4 = "SELECT * FROM `cours_test` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
+							$res4 = $conn->query($sql4);
+							$i=1;
+							while ($row4=$res4->fetch()) {
+								if($row4['TestType']==='choose'){
+										?>
+											<form action="./config/test/checked.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $row4['TestID'] ?>" method="post" class="py-3">
+												<h5 class="my-0"><b> <?php echo $i; ?> </b> <?php echo $row4['TestSavol']; ?></h5>
+												<p class="text-danger m-0">To'g'ri javobni tanlang</p>
+												<?php
+													$sql5 = "SELECT * FROM `cours_test_javob` WHERE `TestID`='".$row4['TestID']."' ORDER BY rand()";
+													$res5 = $conn->query($sql5);
+													while ($row5 = $res5->fetch()) {
+												?>
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="Javob" id="<?php echo $row5['JavobID']; ?>" value="<?php echo $row5['JavobID']; ?>" required>
+													<label class="form-check-label" for="<?php echo $row5['JavobID']; ?>"><?php echo $row5['Javob']; ?></label>
+												</div>
+												<?php } ?>
+												<button class="btn btn-success mt-2" name="choose" type="submit" style="border-radius:0;">Tekshirish</button>
+											</form>
+										<?php
+									}elseif($row4['TestType']==='chechbox'){
+										?>
+											<form action="./config/test/checked.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $row4['TestID'] ?>" method="post" class="py-3">
+												<h5 class="my-0"><b> <?php echo $i; ?> </b> <?php echo $row4['TestSavol']; ?></h5>
+												<p class="text-danger m-0">To'g'ri javoblarni tanlang</p>
+												<?php
+													$sql5 = "SELECT * FROM `cours_test_javob` WHERE `TestID`='".$row4['TestID']."' ORDER BY rand()";
+													$res5 = $conn->query($sql5);
+													while ($row5 = $res5->fetch()) {
+												?>
+												<div class="form-check">
+													<input class="form-check-input" type="checkbox" name="<?php echo $row5['JavobID']; ?>" value="<?php echo $row5['JavobID']; ?>" id="<?php echo $row5['JavobID']; ?>">
+													<label class="form-check-label" for="<?php echo $row5['JavobID']; ?>"><?php echo $row5['Javob']; ?></label>
+												</div>
+												<?php } ?>
+												<button class="btn btn-success mt-2" name="chechbox" type="submit" style="border-radius:0;">Tekshirish</button>
+											</form>
+										<?php
+									}elseif($row4['TestType']==='insert'){
+								?>
+						<form action="./config/test/checked.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $row4['TestID'] ?>" method="post" class="py-3">
+							<h5 class="my-0"><b> <?php echo $i; ?> </b> <?php echo $row4['TestSavol']; ?></h5>
+							<p class="text-danger m-0">To'g'ri javobni kiriting</p>
+							<input class="form-control" type="text" name="Javob" style="border-radius: 0;" required>
+							<button class="btn btn-success mt-2" name="insert" type="submit" style="border-radius:0;">Tekshirish</button>
 						</form>
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 2 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javobni tanlang</p>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="javob" id="javob1" value="option1" required>
-								<label class="form-check-label" for="javob1">Default radio</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="javob" id="javob2" value="option2" required>
-								<label class="form-check-label" for="javob">Second default radio</label>
-							</div>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
-						</form>
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 3 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javoblarni tanlang</p>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="jav01">
-								<label class="form-check-label" for="jav01">Default checkbox</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="jav02">
-								<label class="form-check-label" for="jav02">Checked checkbox</label>
-							</div>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
-						</form>
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 4 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javoblarni tanlang</p>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="jav01">
-								<label class="form-check-label" for="jav01">Default checkbox</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="jav02">
-								<label class="form-check-label" for="jav02">Checked checkbox</label>
-							</div>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
-						</form>
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 5 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javobni kiriting</p>
-							<input class="form-control" type="text" style="border-radius: 0;" required>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
-						</form>
-						<form action="#" method="post" class="py-3">
-							<h5 class="my-2"><b> 6 </b> Savolllar savol savol</h5>
-							<p class="text-danger">To'g'ri javobni kiriting</p>
-							<input class="form-control" type="text" style="border-radius: 0;" required>
-							<button class="btn btn-success mt-2" type="submit" style="border-radius:0;">Tekshirish</button>
-						</form>
+						<?php } $i++;} ?>
 					</div>
 
 					<div class="row">

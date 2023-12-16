@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 16 2023 г., 12:47
--- Версия сервера: 10.4.28-MariaDB
--- Версия PHP: 8.0.28
+-- Время создания: Дек 16 2023 г., 21:31
+-- Версия сервера: 10.4.25-MariaDB
+-- Версия PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,30 +33,30 @@ CREATE TABLE `coues_mavzu` (
   `MavzuID` varchar(25) NOT NULL,
   `MavzuName` varchar(70) NOT NULL,
   `MavzuAbout` longtext NOT NULL,
-  `MavzuTest` longtext NOT NULL,
+  `MavzuLugat` longtext NOT NULL,
   `Video` varchar(150) NOT NULL,
   `VideoLine` varchar(9) NOT NULL,
   `MavzuNumber` int(3) NOT NULL,
   `Name1` varchar(100) NOT NULL,
   `Name2` varchar(100) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `coues_mavzu`
 --
 
-INSERT INTO `coues_mavzu` (`id`, `CoursID`, `MavzuID`, `MavzuName`, `MavzuAbout`, `MavzuTest`, `Video`, `VideoLine`, `MavzuNumber`, `Name1`, `Name2`, `Data`) VALUES
-(1, '1110001110', '30000001', '1-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 1, 's', 's', '2023-12-16 11:21:35'),
-(2, '1110001110', '30000002', '2-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 2, 's', 's', '2023-12-16 11:22:56'),
-(3, '1110001110', '30000003', '3-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 3, 's', 's', '2023-12-16 11:22:56'),
-(4, '1110001110', '30000004', '4-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 4, 's', 's', '2023-12-16 11:22:56'),
-(5, '1110001110', '30000005', '5-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 5, 's', 's', '2023-12-16 11:22:56'),
-(6, '1110001110', '30000006', '6-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 6, 's', 's', '2023-12-16 11:22:56'),
-(7, '1110001110', '30000007', '7-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 7, 's', 's', '2023-12-16 11:22:56'),
-(8, '1110001110', '30000008', '8-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 8, 's', 's', '2023-12-16 11:22:56'),
-(9, '1110001110', '30000009', '9-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 9, 's', 's', '2023-12-16 11:22:56'),
-(10, '1110001110', '30000010', '10-dars', 'Testttttt', 'Lugatlar', 'https://atko.tech/newonline/assets/video/01/e50-1.webm', '00:15:20', 10, 's', 's', '2023-12-16 11:22:56');
+INSERT INTO `coues_mavzu` (`id`, `CoursID`, `MavzuID`, `MavzuName`, `MavzuAbout`, `MavzuLugat`, `Video`, `VideoLine`, `MavzuNumber`, `Name1`, `Name2`, `Data`) VALUES
+(1, '1110001110', '30000001', '1-dars', 'Testttttt', 'NULL', '01/e50-1.webm', '00:15:20', 1, 's', 's', '2023-12-16 11:21:35'),
+(2, '1110001110', '30000002', '2-dars', 'Testttttt', 'NULL', '01/e50-2.webm', '00:15:20', 2, 's', 's', '2023-12-16 11:22:56'),
+(3, '1110001110', '30000003', '3-dars', 'Testttttt', 'NULL', '01/e50-3.webm', '00:15:20', 3, 's', 's', '2023-12-16 11:22:56'),
+(4, '1110001110', '30000004', '4-dars', 'Testttttt', 'NULL', '01/e50-4.webm', '00:15:20', 4, 's', 's', '2023-12-16 11:22:56'),
+(5, '1110001110', '30000005', '5-dars', 'Testttttt', 'NULL', '01/e50-5.webm', '00:15:20', 5, 's', 's', '2023-12-16 11:22:56'),
+(6, '1110001110', '30000006', '6-dars', 'Testttttt', 'NULL', '01/e50-6.webm', '00:15:20', 6, 's', 's', '2023-12-16 11:22:56'),
+(7, '1110001110', '30000007', '7-dars', 'Testttttt', 'NULL', '01/e50-7.webm', '00:15:20', 7, 's', 's', '2023-12-16 11:22:56'),
+(8, '1110001110', '30000008', '8-dars', 'Testttttt', 'NULL', '01/e50-8.webm', '00:15:20', 8, 's', 's', '2023-12-16 11:22:56'),
+(9, '1110001110', '30000009', '9-dars', 'Testttttt', 'NULL', '01/e50-9.webm', '00:15:20', 9, 's', 's', '2023-12-16 11:22:56'),
+(10, '1110001110', '30000010', '10-dars', 'Testttttt', 'NULL', '01/e50-10.webm', '00:15:20', 10, 's', 's', '2023-12-16 11:22:56');
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `cours` (
   `TecherImage` varchar(120) NOT NULL,
   `Muddat` int(3) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `cours`
@@ -87,6 +87,75 @@ CREATE TABLE `cours` (
 
 INSERT INTO `cours` (`id`, `CoursID`, `CoursName`, `CoursText`, `CoursAbout`, `CoursPrice`, `CoursImage`, `CoursMavzu`, `CoursTil`, `CoursDavomiy`, `CoursTecher`, `TecherImage`, `Muddat`, `Data`) VALUES
 (1, '1110001110', 'Koreys tili darslari', 'Kurs haqida qisqacha malumot', 'Kurs haqida to\'liq malumot yozilishi kerak', '150000', '01.jpg', 12, 'O`zbek', '12:24:00', 'Elshod Musurmonov', '01.jpg', 30, '2023-12-16 10:36:22');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cours_test`
+--
+
+CREATE TABLE `cours_test` (
+  `id` int(11) NOT NULL,
+  `CoursID` varchar(20) NOT NULL,
+  `MavzuID` varchar(20) NOT NULL,
+  `TestID` varchar(20) NOT NULL,
+  `TestSavol` varchar(120) NOT NULL,
+  `TestType` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `cours_test`
+--
+
+INSERT INTO `cours_test` (`id`, `CoursID`, `MavzuID`, `TestID`, `TestSavol`, `TestType`) VALUES
+(1, '1110001110', '30000001', '40000001', 'Bitta javob 1', 'choose'),
+(2, '1110001110', '30000001', '40000002', 'Bitta javob 2', 'choose'),
+(3, '1110001110', '30000001', '40000003', 'Bir nechta javob 1', 'chechbox'),
+(4, '1110001110', '30000001', '40000004', 'Bir nechta javob 1', 'chechbox'),
+(5, '1110001110', '30000001', '40000005', 'Input javob 1', 'insert'),
+(6, '1110001110', '30000001', '40000006', 'Input javob 2', 'insert'),
+(7, '1110001110', '30000001', '40000007', 'Input javob 3', 'insert');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `cours_test_javob`
+--
+
+CREATE TABLE `cours_test_javob` (
+  `id` int(11) NOT NULL,
+  `TestID` varchar(20) NOT NULL,
+  `JavobID` varchar(20) NOT NULL,
+  `Javob` varchar(120) NOT NULL,
+  `Status` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `cours_test_javob`
+--
+
+INSERT INTO `cours_test_javob` (`id`, `TestID`, `JavobID`, `Javob`, `Status`) VALUES
+(1, '40000001', '50000001', 'To`g`ri', 'true'),
+(2, '40000001', '50000002', 'Notogri 1', 'false'),
+(3, '40000001', '50000003', 'Notogri 2', 'false'),
+(4, '40000001', '50000004', 'Notogri 3', 'false'),
+(5, '40000002', '50000005', 'To`g`ri', 'true'),
+(6, '40000002', '50000006', 'Notogri 1', 'false'),
+(7, '40000002', '50000007', 'Notogri 2', 'false'),
+(8, '40000003', '50000001', 'Togri', 'true'),
+(9, '40000003', '50000021', 'Togri', 'true'),
+(10, '40000003', '50000022', 'NTogri', 'false'),
+(11, '40000003', '50000023', 'Togri', 'true'),
+(12, '40000003', '50000024', 'NTogri', 'false'),
+(13, '40000003', '50000025', 'Togri', 'true'),
+(14, '40000004', '50000026', 'NTogri', 'false'),
+(15, '40000004', '50000027', 'NTogri', 'false'),
+(16, '40000004', '50000028', 'Togri', 'true'),
+(17, '40000004', '50000029', 'NTogri', 'false'),
+(18, '40000004', '50000030', 'Togri', 'true'),
+(19, '40000005', '50000033', '3', 'true'),
+(20, '40000006', '50000034', '3', 'true'),
+(21, '40000007', '50000035', '3', 'true');
 
 -- --------------------------------------------------------
 
@@ -101,15 +170,15 @@ CREATE TABLE `user` (
   `Phone` varchar(45) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp(),
   `HoverData` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `user`
 --
 
 INSERT INTO `user` (`id`, `UserID`, `FIO`, `Phone`, `Data`, `HoverData`) VALUES
-(1, '123456789', 'Elshod Musurmonov', '908830450', '2023-12-16 07:32:04', '2023-12-16 10:04:09'),
-(2, '1702721972', 'ATKO oquv markazi', '945204004', '2023-12-16 10:19:32', '2023-12-16 10:51:46');
+(1, '123456789', 'Elshod Musurmonov', '908830450', '2023-12-16 07:32:04', '2023-12-16 15:06:46'),
+(2, '1702721972', 'ATKO oquv markazi', '945204004', '2023-12-16 10:19:32', '2023-12-16 15:07:05');
 
 -- --------------------------------------------------------
 
@@ -124,7 +193,7 @@ CREATE TABLE `user_cours` (
   `Start` date NOT NULL,
   `End` date NOT NULL,
   `Text` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `user_cours`
@@ -147,6 +216,18 @@ ALTER TABLE `coues_mavzu`
 -- Индексы таблицы `cours`
 --
 ALTER TABLE `cours`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `cours_test`
+--
+ALTER TABLE `cours_test`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `cours_test_javob`
+--
+ALTER TABLE `cours_test_javob`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -176,6 +257,18 @@ ALTER TABLE `coues_mavzu`
 --
 ALTER TABLE `cours`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `cours_test`
+--
+ALTER TABLE `cours_test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT для таблицы `cours_test_javob`
+--
+ALTER TABLE `cours_test_javob`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
