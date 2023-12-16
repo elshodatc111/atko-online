@@ -107,98 +107,49 @@
     
 	<section class="single-course spad pb-0">
 		<div class="container">
+			<?php
+				$thisDate = date("Y-m-d");
+				$sql1 = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `Start`<='".$thisDate."' AND `End`>='".$thisDate."'";
+				$res1 = $conn->query($sql1);
+				while ($row1 = $res1->fetch()) {
+					$sql2 = "SELECT * FROM `cours` WHERE `CoursID`='".$row1['CoursID']."'";
+					$res2 = $conn->query($sql2);
+					$row2 = $res2->fetch();
+					$sql3 = "SELECT MIN(MavzuNumber), MavzuID FROM `coues_mavzu` WHERE `CoursID`='".$row1['CoursID']."'";
+					$res3 = $conn->query($sql3);
+					$row3 = $res3->fetch();
+			?>
 			<div class="course-meta-area my-3">
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1 my-3">
-						<div class="course-note">Muddat: 15.12.2024</div>
-						<h3>Kursning to'liq nomi</h3>
+						<div class="course-note">Muddat: <?php echo $row1['End']; ?></div>
+						<h3><?php echo $row2['CoursName']; ?></h3>
 						<div class="course-metas">
 							<div class="course-meta">
 								<div class="course-author">
-									<h6>O'qitivchi:</h6><p>William Parker</p>
+									<h6>O'qitivchi:</h6><p><?php echo $row2['CoursTecher']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Mavzular soni:</h6><p>Development</p>
+									<h6>Mavzular soni:</h6><p><?php echo $row2['CoursMavzu']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Testlar soni</h6><p>120 </p>
+									<h6>Kurs tili</h6><p><?php echo $row2['CoursTil']; ?> </p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<a href="lessin_video.php" class="site-btn buy-btn">Darslarni boshlash</a>
+									<a href="lessin_video.php?CoursID=<?php echo $row1['CoursID']; ?>&MavzuID=<?php echo $row3['MavzuID']; ?>" class="site-btn buy-btn">Darslarni boshlash</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-            
-			<div class="course-meta-area my-3">
-				<div class="row">
-					<div class="col-lg-10 offset-lg-1 my-3">
-						<div class="course-note">Muddat: 15.12.2024</div>
-						<h3>Kursning to'liq nomi</h3>
-						<div class="course-metas">
-							<div class="course-meta">
-								<div class="course-author">
-									<h6>O'qitivchi:</h6><p>William Parker</p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Mavzular soni:</h6><p>Development</p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Testlar soni</h6><p>120 </p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<a href="lessin_video.php" class="site-btn buy-btn">Darslarni boshlash</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-            
-			<div class="course-meta-area my-3">
-				<div class="row">
-					<div class="col-lg-10 offset-lg-1 my-3">
-						<div class="course-note">Muddat: 15.12.2024</div>
-						<h3>Kursning to'liq nomi</h3>
-						<div class="course-metas">
-							<div class="course-meta">
-								<div class="course-author">
-									<h6>O'qitivchi:</h6><p>William Parker</p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Mavzular soni:</h6><p>Development</p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Testlar soni</h6><p>120 </p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<a href="lessin_video.php" class="site-btn buy-btn">Darslarni boshlash</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            <?php } ?>
 		</div>
 	</section>
 

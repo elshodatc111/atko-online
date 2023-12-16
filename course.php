@@ -1,6 +1,13 @@
 <!DOCTYPE php>
 <?php
 	include("./config/confige.php");
+	if(!isset($_GET['CoursID'])){
+		header("location: ./courses.php");
+	}else{
+		$sql1 = "SELECT * FROM `cours` WHERE `CoursID`='".$_GET['CoursID']."'";
+		$res1 = $conn->query($sql1);
+		$row1 = $res1->fetch();
+	}
 ?>
 <php lang="en">
 <head>
@@ -62,54 +69,66 @@
 			<div class="course-meta-area">
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
-						<h3>Kursning nomi</h3>
+						<h3><?php echo $row1['CoursName']; ?></h3>
 						<div class="course-metas">
 							<div class="course-meta">
 								<div class="course-author">
-									<div class="ca-pic set-bg" data-setbg="img/authors/2.jpg"></div>
+									<div class="ca-pic set-bg" data-setbg="img/techer/<?php echo $row1['CoursImage']; ?>"></div>
 									<h6>O'qituvchi</h6>
-									<p>Elshod Musurmonov</p>
+									<p><?php echo $row1['CoursTecher']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Mavzular</h6>
-									<p>15</p>
+									<p><?php echo $row1['CoursMavzu']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Tili</h6>
-									<p>O'zbek</p>
+									<p><?php echo $row1['CoursTil']; ?></p>
+								</div>
+							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Video Darslar</h6>
+									<p><?php echo $row1['CoursDavomiy']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
 									<h6>Davomiyligi</h6>
-									<p>15:00:45</p>
+									<p><?php echo $row1['Muddat']; ?> kun</p>
 								</div>
 							</div>
 						</div>
-						<p class="btn btn-success p-3 m-0">Narxi: 150 000 so'm</p>
+						<p class="btn btn-success p-3 m-0">Narxi: <?php echo $row1['CoursPrice']; ?> so'm</p>
+						<?php
+							if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
+						?>
 						<button class="btn btn-danger p-3 m-0">Sotib olish</button>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
-			<img src="img/courses/single.jpg" alt="" class="course-preview">
+			<img src="img/kurs/<?php echo $row1['CoursImage']; ?>" alt="" class="course-preview">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 course-list">
 					<div class="cl-item">
 						<h4>Kurs haqida</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et nunc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. </p>
+						<p><?php echo $row1['CoursAbout']; ?></p>
 					</div>
 					<div class="cl-item">
 						<h4>Kurs mavzulari</h4>
 						<ul>
-							<li><p>Birinchi mavzu</p></li>
-							<li><p>Birinchi mavzu</p></li>
-							<li><p>Birinchi mavzu</p></li>
-							<li><p>Birinchi mavzu</p></li>
-							<li><p>Birinchi mavzu</p></li>
+							<?php
+								$sql3 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `MavzuNumber` ASC";
+								$res3 = $conn->query($sql3);
+								while ($row3=$res3->fetch()) {
+							?>
+							<li><p><?php echo $row3['MavzuName']; ?></p></li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>

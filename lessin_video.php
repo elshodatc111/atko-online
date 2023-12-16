@@ -60,7 +60,7 @@
 			<div class="site-breadcrumb">
 				<h2 class="text-white">Kurs video</h2>
 				<a href="index.php">Bosh sahifa</a>
-				<a href="index.php">Kabinet</a>
+				<a href="kabinet.php">Kabinet</a>
 				<span>Kurs</span>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 				<div class="col-lg-9">
 					<div class="blog-post">
 						<video id='myvideo' controls style="width:100%;" controlsList="nodownload">
-                            <source src="" type="video/mp4">
+                            <source src="https://atko.tech/newonline/assets/video/01/e50-1.webm" type="video/mp4">
                         </video>
 						<h3>How to create the perfect resume</h3>
 						<p>

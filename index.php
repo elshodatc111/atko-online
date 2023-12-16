@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.php">
+						<a href="./course.php?CoursID=">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>

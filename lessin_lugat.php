@@ -60,7 +60,7 @@
 			<div class="site-breadcrumb">
 				<h2 class="text-white">Kurs lug'at</h2>
 				<a href="index.php">Bosh sahifa</a>
-				<a href="index.php">Kabinet</a>
+				<a href="./kabinet.php">Kabinet</a>
 				<span>Kurs</span>
 			</div>
 		</div>
