@@ -12,6 +12,9 @@ if(isset($_POST['checkcode'])){
             $sql1 = "SELECT * FROM `user` WHERE `Phone`='".$_COOKIE['phone']."'";
             $res1 = $conn->query($sql1);
             $row = $res1->fetch();
+            $sql2 = "UPDATE `user` SET `HoverData`=CURRENT_TIMESTAMP WHERE `Phone`=?";
+            $stmt= $conn->prepare($sql2);
+            $stmt->execute([$_COOKIE['phone']]);
             setcookie("UserID", $row['UserID'], time() + 28000, '/');
             setcookie("code", $code, time() - 300, '/');
             setcookie("phone", $phone, time() - 300, '/');

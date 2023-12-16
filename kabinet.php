@@ -3,6 +3,10 @@
 	include("./config/confige.php");
 	if(!isset($_COOKIE['UserID'])){
 		header("location: ./index.php");
+	}else{
+		$sql0 = "SELECT * FROM `user` WHERE `UserID`='".$_COOKIE['UserID']."'";
+		$res0 = $conn->query($sql0);
+		$row0 = $res0->fetch();
 	}
 ?>
 <php lang="en">
@@ -73,19 +77,25 @@
 							<div class="course-meta">
 								<div class="course-author text-dark">
 									<h6>Ismingiz:</h6>
-									<p>William Parker, <span>Developer</span></p>
+									<p><?php echo $row0['FIO']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta text-dark">
 								<div class="cm-info">
 									<h6>Telefon:</h6>
-									<p>90 883 0450</p>
+									<p><?php echo $row0['Phone']; ?></p>
 								</div>
 							</div>
 							<div class="course-meta text-dark">
 								<div class="cm-info">
 									<h6>Kurslaringiz</h6>
 									<p>12</p>
+								</div>
+							</div>
+							<div class="course-meta text-dark">
+								<div class="cm-info">
+									<h6>Oxirgi tashrif</h6>
+									<p><?php echo $row0['HoverData']; ?></p>
 								</div>
 							</div>
 						</div>

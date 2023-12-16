@@ -3,6 +3,10 @@
 	include("./config/confige.php");
 	if(!isset($_COOKIE['UserID'])){
 		header("location: ./index.php");
+	}else{
+		$sql0 = "SELECT * FROM `user` WHERE `UserID`='".$_COOKIE['UserID']."'";
+		$res0 = $conn->query($sql0);
+		$row0 = $res0->fetch();
 	}
 ?>
 <php lang="en">
