@@ -24,7 +24,6 @@
     <div id="preloder">
 		<div class="loader"></div>
 	</div>
-    
 	<header class="header-section">
 		<div class="container">
 			<div class="row">
@@ -42,9 +41,9 @@
 							<li><a href="index.php">Bosh sahifa</a></li>
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
-							<li><a href="login.php">Kirish</a></li>
-							<li><a href="reg.php">Ro'yhatdan o'tish</a></li>
-							<li><a href="kabinet.php">Kabinet</a></li>
+							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>
+							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="reg.php">Ro'yhatdan o'tish</a></li>
+							<li style="display:<?php if(!isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
 				</div>
