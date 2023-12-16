@@ -1,6 +1,11 @@
 <!DOCTYPE php>
+<?php
+	include("./config/confige.php");
+	if(isset($_COOKIE['UserID'])){
+		setcookie("UserID", "", time() -28200, '/');
+	}
+?>
 <php lang="en">
-	
 <head>
 	<title>Kirish</title>
 	<meta charset="UTF-8">

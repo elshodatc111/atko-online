@@ -1,4 +1,10 @@
 <!DOCTYPE php>
+<?php
+	include("./config/confige.php");
+	if(!isset($_COOKIE['UserID'])){
+		header("location: ./index.php");
+	}
+?>
 <php lang="en">
 <head>
 	<title>Kurs video</title>

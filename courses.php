@@ -1,4 +1,7 @@
 <!DOCTYPE php>
+<?php
+	include("./config/confige.php");
+?>
 <php lang="en">
 <head>
 	<title>Online kurslar</title>
