@@ -70,10 +70,10 @@
 					$res1 = $conn->query($sql1);
 					while ($row1 = $res1->fetch()) {
 				?>
-				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+				<div class="mix col-lg-4 finance">
 					<div class="course-item">
-						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>">
-							<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>">
+						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>" >
+							<div class="course-thumb set-bg" style='border:1px solid red;' data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>">
 								<div class="price">Narxi: <?php echo $row1['CoursPrice']; ?></div>
 							</div>
 							<div class="course-info">

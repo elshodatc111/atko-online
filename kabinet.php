@@ -104,9 +104,8 @@
 			</div>
 		</div>
 	</section>
-    
-	<section class="single-course spad pb-0">
-		<div class="container">
+    <div class="container my-3">
+		<div class="row">
 			<?php
 				$thisDate = date("Y-m-d");
 				$sql1 = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `Start`<='".$thisDate."' AND `End`>='".$thisDate."'";
@@ -119,39 +118,22 @@
 					$res3 = $conn->query($sql3);
 					$row3 = $res3->fetch();
 			?>
-			<div class="course-meta-area my-3">
-				<div class="row">
-					<div class="col-lg-10 offset-lg-1 my-3">
-						<div class="course-note">Muddat: <?php echo $row1['End']; ?></div>
-						<h3><?php echo $row2['CoursName']; ?></h3>
-						<div class="course-metas">
-							<div class="course-meta">
-								<div class="course-author">
-									<h6>O'qitivchi:</h6><p><?php echo $row2['CoursTecher']; ?></p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Mavzular soni:</h6><p><?php echo $row2['CoursMavzu']; ?></p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Kurs tili</h6><p><?php echo $row2['CoursTil']; ?> </p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<a href="lessin_video.php?CoursID=<?php echo $row1['CoursID']; ?>&MavzuID=<?php echo $row3['MavzuID']; ?>" class="site-btn buy-btn">Darslarni boshlash</a>
-								</div>
-							</div>
+			<div class="mix col-lg-4 finance">
+				<div class="course-item">
+					<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row2['CoursImage']; ?>">
+						<div class="price">Tugash muddati: <?php echo $row2['CoursPrice']; ?></div>
+					</div>
+					<div class="course-info">
+						<div class="course-text py-2 text-center">
+							<h5><?php echo $row2['CoursName']; ?></h5>
+							<a class="btn btn-danger py-1" style="border-radius:0;" href="./lessin_video.php?CoursID=<?php echo $row1['CoursID']; ?>&MavzuID=<?php echo $row3['MavzuID']; ?>">Darslarni boshlash</a>
 						</div>
 					</div>
 				</div>
 			</div>
             <?php } ?>
 		</div>
-	</section>
+	</div>
 
 	<section class="banner-section spad">
 		<div class="container">

@@ -112,7 +112,7 @@
 					</div>
 				</div>
 			</div>
-			<img src="img/kurs/<?php echo $row1['CoursImage']; ?>" alt="" class="course-preview">
+			<img src="img/kurs/<?php echo $row1['CoursImage']; ?>" style='border:1px solid red;' class="course-preview">
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1 course-list">
 					<div class="cl-item">
@@ -146,7 +146,7 @@
 				<!-- course -->
 				<div class="course-item">
 					<a href="./course.php">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
+						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg" >
 							<div class="price">Narxi: 150 000 so'm</div>
 						</div>
 						<div class="course-info">

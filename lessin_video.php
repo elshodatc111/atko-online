@@ -4,10 +4,26 @@
 	if(!isset($_COOKIE['UserID'])){
 		header("location: ./index.php");
 	}else{
+		# foydalonuvchi malumotlari
 		$sql0 = "SELECT * FROM `user` WHERE `UserID`='".$_COOKIE['UserID']."'";
 		$res0 = $conn->query($sql0);
 		$row0 = $res0->fetch();
-	}
+		# Mavzu malumotlari
+		$sql1 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
+		$res1 = $conn->query($sql1);
+		$row1 = $res1->fetch();
+		$video = "https://atko.tech/video/".$row1['Video'];
+		$MavzuName = $row1['MavzuName'];
+		$MavzuAbout = $row1['MavzuAbout'];
+		#Kurs malumotlari
+		$sql2 = "SELECT * FROM `cours` WHERE `CoursID`='".$_GET['CoursID']."'";
+		$res2 = $conn->query($sql2);
+		$row2 = $res2->fetch();
+		#Kurs muddati
+		$sql3="SELECT * FROM `user_cours` WHERE `UserID`='".$row0['UserID']."' AND `CoursID`='".$_GET['CoursID']."'";
+		$res3 = $conn->query($sql3);
+		$row3 = $res3->fetch();
+	}	
 ?>
 <php lang="en">
 <head>
@@ -70,20 +86,20 @@
 		<div class="container">
 			<div class="search-warp p-1 py-3 pt-5" style="background-color: antiquewhite;">
 				<div class="section-title text-white">
-					<h2><span>Kursning nomi</span></h2>
+					<h2><span><?php echo $row2['CoursName']; ?></span></h2>
 				</div>
 				<div class="row px-3 py-0 text-center text-dark">
                     <div class="col-lg-3">
-                        <h5 style="font-weight: 700;">O'qitivchi:</h5><p>William Parker</p>
+                        <h5 style="font-weight: 700;">O'qitivchi:</h5><p><?php echo $row2['CoursTecher']; ?></p>
                     </div>
                     <div class="col-lg-3">
-                        <h5 style="font-weight: 700;">Mavzular soni:</h5><p>Development</p>
+                        <h5 style="font-weight: 700;">Mavzular soni:</h5><p><?php echo $row2['CoursMavzu']; ?></p>
                     </div>
                     <div class="col-lg-3">
-                        <h5 style="font-weight: 700;">Testlar soni</h5><p>120 </p>
+                        <h5 style="font-weight: 700;">Mavzu:</h5><p><?php echo $MavzuName; ?> </p>
                     </div>
                     <div class="col-lg-3">
-                        <h5 style="font-weight: 700;">Muddat: </h5><p>15-12-2023 </p>
+                        <h5 style="font-weight: 700;">Muddat:</h5><p><?php echo $row3['End']; ?> </p>
                     </div>
 				</div>
 			</div>
@@ -95,39 +111,32 @@
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="blog-post">
-						<video id='myvideo' controls style="width:100%;" controlsList="nodownload">
-                            <source src="https://atko.tech/newonline/assets/video/01/e50-1.webm" type="video/mp4">
+						<video id='myvideo' controls style="width:100%;border:3px solid red;" controlsList="nodownload">
+                            <source src="<?php echo $video; ?>" type="video/mp4">
                         </video>
-						<h3>How to create the perfect resume</h3>
-						<p>
-                            Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et n
-                            unc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec u
-                            ltrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a m
-                            etus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. 
-                        </p>
-
+						<h3><?php echo $MavzuName; ?></h3>
+						<p><?php echo $MavzuAbout; ?></p>
 						<div class="row mt-5">
                             <div class="col-6">
-                                <a href="lissen_test.php" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
+                                <a href="lissen_test.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
                             </div>
                             <div class="col-6">
-							    <a href="lessin_lugat.php" class="w-100 btn btn-danger py-3">Mavzuga oid lug'atlar</a>
+							    <a href="lessin_lugat.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid lug'atlar</a>
                             </div>
                         </div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-5 col-sm-9 sidebar">
+				<div class="col-lg-3 sidebar">
 					<div class="sb-widget-item">
 						<h4 class="mb-3 w-100 text-center">Mavzular</h4>
 						<ul>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
-							<li><a href="lessin_video.php">Developement</a></li>
+							<?php
+								$sql10 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `MavzuNumber` ASC";
+								$res10 = $conn->query($sql10);
+								while ($row10 = $res10->fetch()) {
+							?>
+							<li><a href="lessin_video.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row10['MavzuID']; ?>"><?php echo $row10['MavzuName']; ?></a></li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
