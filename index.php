@@ -146,10 +146,10 @@
 						<div class="section-title text-white text-left">
 							<h2>Biz bilan bog'laning</h2>
 						</div>
-						<form class="signup-form">
-							<input type="text" placeholder="Ismingiz">
-							<input type="text" placeholder="Telefon raqamingiz">
-							<textarea type="text" placeholder="Murojat matni"></textarea>
+						<form action="./config/sms/bot.php" method="POST" class="signup-form">
+							<input type="text" name="ISM" placeholder="Ismingiz">
+							<input type="text" name="PHONE" class="phone" placeholder="Telefon raqamingiz">
+							<textarea type="text" name="TEXT" placeholder="Murojat matni"></textarea>
 							<button class="site-btn">Yuborish</button>
 						</form>
 					</div>
@@ -179,4 +179,13 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+    <script src="./js/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.phone').inputmask('99 999 9999');
+            $('.pasport').inputmask('AA 9999999');
+            $('.pnfl').inputmask('99999999999999');
+            $('.kodes').inputmask('9 9 9 9 9 9');
+        });
+    </script>
 </php>
