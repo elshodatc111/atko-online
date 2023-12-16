@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
 	<title>Kurs</title>
 	<meta charset="UTF-8">
@@ -34,12 +34,12 @@
 				<div class="col-lg-9 col-md-9">
 					<nav class="main-menu">
 						<ul>
-							<li><a href="index.html">Bosh sahifa</a></li>
-							<li><a href="courses.html">Kurslar</a></li>
-							<li><a href="contact.html">Bog'lanish</a></li>
-							<li><a href="login.html">Kirish</a></li>
-							<li><a href="reg.html">Ro'yhatdan o'tish</a></li>
-							<li><a href="kabinet.html">Kabinet</a></li>
+							<li><a href="index.php">Bosh sahifa</a></li>
+							<li><a href="courses.php">Kurslar</a></li>
+							<li><a href="contact.php">Bog'lanish</a></li>
+							<li><a href="login.php">Kirish</a></li>
+							<li><a href="reg.php">Ro'yhatdan o'tish</a></li>
+							<li><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -50,7 +50,7 @@
 	<div class="page-info-section set-bg" data-setbg="img/page-bg/2.jpg">
 		<div class="container">
 			<div class="site-breadcrumb">
-				<a href="./index.html">Bosh  sahifa</a>
+				<a href="./index.php">Bosh  sahifa</a>
 				<span>Kurs haqida</span>
 			</div>
 		</div>
@@ -125,7 +125,7 @@
 			<div class="rc-slider owl-carousel">
 				<!-- course -->
 				<div class="course-item">
-					<a href="./course.html">
+					<a href="./course.php">
 						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
 							<div class="price">Narxi: 150 000 so'm</div>
 						</div>
@@ -138,7 +138,7 @@
 					</a>
 				</div>
 				<div class="course-item">
-					<a href="./course.html">
+					<a href="./course.php">
 						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
 							<div class="price">Narxi: 150 000 so'm</div>
 						</div>
@@ -151,7 +151,7 @@
 					</a>
 				</div>
 				<div class="course-item">
-					<a href="./course.html">
+					<a href="./course.php">
 						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
 							<div class="price">Narxi: 150 000 so'm</div>
 						</div>
@@ -164,7 +164,7 @@
 					</a>
 				</div>
 				<div class="course-item">
-					<a href="./course.html">
+					<a href="./course.php">
 						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
 							<div class="price">Narxi: 150 000 so'm</div>
 						</div>
@@ -185,8 +185,8 @@
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
-					<li><a href="courses.html">Online kurslar</a></li>
-					<li><a href="contact.html">Bog'lanish</a></li>
+					<li><a href="courses.php">Online kurslar</a></li>
+					<li><a href="contact.php">Bog'lanish</a></li>
 				</ul>
 				<div class="copyright">
 					ATKO o'quv markazi 
@@ -203,4 +203,4 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
-</html>
+</php>

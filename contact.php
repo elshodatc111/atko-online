@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
 	<title>Bog'lanish</title>
 	<meta charset="UTF-8">
@@ -34,12 +34,12 @@
 				<div class="col-lg-9 col-md-9">
 					<nav class="main-menu">
 						<ul>
-							<li><a href="index.html">Bosh sahifa</a></li>
-							<li><a href="courses.html">Kurslar</a></li>
-							<li><a href="contact.html">Bog'lanish</a></li>
-							<li><a href="login.html">Kirish</a></li>
-							<li><a href="reg.html">Ro'yhatdan o'tish</a></li>
-							<li><a href="kabinet.html">Kabinet</a></li>
+							<li><a href="index.php">Bosh sahifa</a></li>
+							<li><a href="courses.php">Kurslar</a></li>
+							<li><a href="contact.php">Bog'lanish</a></li>
+							<li><a href="login.php">Kirish</a></li>
+							<li><a href="reg.php">Ro'yhatdan o'tish</a></li>
+							<li><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -51,7 +51,7 @@
 		<div class="container">
 			<div class="site-breadcrumb">
 				<h2 class="text-white">Bog'lanish</h2>
-				<a href="index.html">Bosh sahifa</a>
+				<a href="index.php">Bosh sahifa</a>
 				<span>Bog'lanish</span>
 			</div>
 		</div>
@@ -127,4 +127,4 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
-</html>
+</php>

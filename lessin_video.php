@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
 	<title>Kurs video</title>
 	<meta charset="UTF-8">
@@ -32,12 +32,12 @@
 				<div class="col-lg-9 col-md-9">
 					<nav class="main-menu">
 						<ul>
-							<li><a href="index.html">Bosh sahifa</a></li>
-							<li><a href="courses.html">Kurslar</a></li>
-							<li><a href="contact.html">Bog'lanish</a></li>
-							<li><a href="login.html">Kirish</a></li>
-							<li><a href="reg.html">Ro'yhatdan o'tish</a></li>
-							<li><a href="kabinet.html">Kabinet</a></li>
+							<li><a href="index.php">Bosh sahifa</a></li>
+							<li><a href="courses.php">Kurslar</a></li>
+							<li><a href="contact.php">Bog'lanish</a></li>
+							<li><a href="login.php">Kirish</a></li>
+							<li><a href="reg.php">Ro'yhatdan o'tish</a></li>
+							<li><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -48,9 +48,9 @@
 	<div class="page-info-section set-bg" data-setbg="img/page-bg/3.jpg">
 		<div class="container">
 			<div class="site-breadcrumb">
-				<h2 class="text-white">Kurs lug'at</h2>
-				<a href="index.html">Bosh sahifa</a>
-				<a href="index.html">Kabinet</a>
+				<h2 class="text-white">Kurs video</h2>
+				<a href="index.php">Bosh sahifa</a>
+				<a href="index.php">Kabinet</a>
 				<span>Kurs</span>
 			</div>
 		</div>
@@ -83,24 +83,12 @@
 	<section class="blog-page spad pb-0">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5 col-sm-9 sidebar">
-					<div class="sb-widget-item">
-						<h4 class="mb-3 w-100 text-center">Mavzular</h4>
-						<ul>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-							<li><a href="lessin_video.html">Developement</a></li>
-						</ul>
-					</div>
-				</div>
 				<div class="col-lg-9">
 					<div class="blog-post">
-						<h3>Mavzuga oid lug'atlar</h3>
+						<video id='myvideo' controls style="width:100%;" controlsList="nodownload">
+                            <source src="" type="video/mp4">
+                        </video>
+						<h3>How to create the perfect resume</h3>
 						<p>
                             Lorem ipsum dolor sit amet, consectetur. Phasellus sollicitudin et n
                             unc eu efficitur. Sed ligula nulla, molestie quis ligula in, eleifend rhoncus ipsum. Donec u
@@ -108,14 +96,29 @@
                             etus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna. 
                         </p>
 
-						<div class="row">
+						<div class="row mt-5">
                             <div class="col-6">
-                                <a href="lissen_test.html" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
+                                <a href="lissen_test.php" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
                             </div>
                             <div class="col-6">
-							    <a href="lessin_video.html" class="w-100 btn btn-danger py-3">Mavzu videosi</a>
+							    <a href="lessin_lugat.php" class="w-100 btn btn-danger py-3">Mavzuga oid lug'atlar</a>
                             </div>
                         </div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-5 col-sm-9 sidebar">
+					<div class="sb-widget-item">
+						<h4 class="mb-3 w-100 text-center">Mavzular</h4>
+						<ul>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+							<li><a href="lessin_video.php">Developement</a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -126,8 +129,8 @@
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
-					<li><a href="courses.html">Online kurslar</a></li>
-					<li><a href="contact.html">Bog'lanish</a></li>
+					<li><a href="courses.php">Online kurslar</a></li>
+					<li><a href="contact.php">Bog'lanish</a></li>
 				</ul>
 				<div class="copyright">
 					ATKO o'quv markazi 
@@ -153,4 +156,4 @@
         });
     </script>
 </body>
-</html>
+</php>

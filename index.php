@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
 	<title>Bosh sahifa</title>
 	<meta charset="UTF-8">
@@ -32,12 +32,12 @@
 				<div class="col-lg-9 col-md-9">
 					<nav class="main-menu">
 						<ul>
-							<li><a href="index.html">Bosh sahifa</a></li>
-							<li><a href="courses.html">Kurslar</a></li>
-							<li><a href="contact.html">Bog'lanish</a></li>
-							<li><a href="login.html">Kirish</a></li>
-							<li><a href="reg.html">Ro'yhatdan o'tish</a></li>
-							<li><a href="kabinet.html">Kabinet</a></li>
+							<li><a href="index.php">Bosh sahifa</a></li>
+							<li><a href="courses.php">Kurslar</a></li>
+							<li><a href="contact.php">Bog'lanish</a></li>
+							<li><a href="login.php">Kirish</a></li>
+							<li><a href="reg.php">Ro'yhatdan o'tish</a></li>
+							<li><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -61,7 +61,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -73,7 +73,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -85,7 +85,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -97,7 +97,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -109,7 +109,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.html">
+						<a href="./course.php">
 							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
 							<div class="ci-text">
 								<h5>IT Development</h5>
@@ -159,8 +159,8 @@
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
-					<li><a href="courses.html">Online kurslar</a></li>
-					<li><a href="contact.html">Bog'lanish</a></li>
+					<li><a href="courses.php">Online kurslar</a></li>
+					<li><a href="contact.php">Bog'lanish</a></li>
 				</ul>
 				<div class="copyright">
 					ATKO o'quv markazi 
@@ -176,4 +176,4 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-</html>
+</php>
