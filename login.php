@@ -69,17 +69,20 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-6 offset-lg-3">
-                        <h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan</h4>
+                        <h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan.</h4>
+						<?php 
+							if(isset($_COOKIE['code'])){echo $_COOKIE['code'];}
+						?>
 						<form action="./config/login/login.php" method="POST" class="course-search-form text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
                             <h4 class="text-dark">Telefon raqam</h3>
 							<input type="text" class="form-control w-100 my-2 phone" name="phone" placeholder="XX XXX XXXX" required>
 							<button class="site-btn btn-dark" name="login">Kirish</button><br><br>
                             <a href="reg.php" class="text-primary pt-3" style="font-weight:700">Ro'yhatdan o'tish</a>
 						</form>
-                        <form action="" method="POST" class="course-search-form text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
+                        <form action="./config/login/login_code.php" method="POST" class="course-search-form text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
                             <h4 class="text-dark">Raqamni tasdiqlang</h3>
-							<input type="text" class="form-control w-100 my-2" placeholder="X-X-X-X-X-X" required>
-							<button class="site-btn btn-dark">Tasdiqlash</button>
+							<input type="text" class="form-control w-100 my-2" name='code' placeholder="X-X-X-X-X-X" required>
+							<button class="site-btn btn-dark" type='submit' name='checkcode'>Tasdiqlash</button>
 						</form>
 					</div>
 				</div>

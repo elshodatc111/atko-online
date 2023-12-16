@@ -12,16 +12,10 @@ if(isset($_POST['login'])){
     if($i>0){
         $code = rand(100000, 999999);
         $text = "Tasdiqlash kodi: ".$code;
-        if(sendMessge($phone,$text)){
-            echo "Yuborildi";
-        }else{
-            echo "Nosend";
-        }
-        
-
-
-
-        
+        #sendMessge($phone,$text);
+        setcookie("code", $code, time() + 300, '/');
+        setcookie("phone", $phone, time() + 300, '/');
+        header("location: ../../login.php?code=true");
     }else{
         header("location: ../../login.php?reg=true");
     }
