@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 16 2023 г., 21:31
+-- Время создания: Дек 17 2023 г., 21:15
 -- Версия сервера: 10.4.25-MariaDB
 -- Версия PHP: 8.1.10
 
@@ -86,7 +86,12 @@ CREATE TABLE `cours` (
 --
 
 INSERT INTO `cours` (`id`, `CoursID`, `CoursName`, `CoursText`, `CoursAbout`, `CoursPrice`, `CoursImage`, `CoursMavzu`, `CoursTil`, `CoursDavomiy`, `CoursTecher`, `TecherImage`, `Muddat`, `Data`) VALUES
-(1, '1110001110', 'Koreys tili darslari', 'Kurs haqida qisqacha malumot', 'Kurs haqida to\'liq malumot yozilishi kerak', '150000', '01.jpg', 12, 'O`zbek', '12:24:00', 'Elshod Musurmonov', '01.jpg', 30, '2023-12-16 10:36:22');
+(1, '1110001110', 'EPS Topik 50 (1-10)', 'Kurs haqida qisqacha malumot', 'Kurs haqida to\'liq malumot yozilishi kerak', '100000', '01.jpg', 10, 'O`zbek', '12:24:00', 'Abbos Tulanov', '01.jpg', 30, '2023-12-16 10:36:22'),
+(2, '1110001111', 'EPS Topik 50 (11-20)', 'test', 'texxxxt', '100000', '01.jpg', 10, 'O`zbek', '00:15:21', 'Abbos Tulanov', '01.jpg', 30, '2023-12-17 19:18:59'),
+(3, '1110001112', 'EPS Topik 50 (21-30)', 'test', 'texxxxt', '100000', '01.jpg', 10, 'O`zbek', '00:15:21', 'Abbos Tulanov', '01.jpg', 30, '2023-12-17 19:19:53'),
+(4, '1110001113', 'EPS Topik 50 (31-40)', 'test', 'texxxxt', '100000', '01.jpg', 10, 'O`zbek', '00:15:21', 'Abbos Tulanov', '01.jpg', 30, '2023-12-17 19:19:53'),
+(5, '1110001114', 'EPS Topik 50 (41-50)', 'test', 'texxxxt', '100000', '01.jpg', 10, 'O`zbek', '00:15:21', 'Abbos Tulanov', '01.jpg', 30, '2023-12-17 19:19:53'),
+(6, '1110001115', 'EPS Topik 50 (51-60)', 'test', 'texxxxt', '100000', '01.jpg', 10, 'O`zbek', '00:15:21', 'Abbos Tulanov', '01.jpg', 30, '2023-12-17 19:20:12');
 
 -- --------------------------------------------------------
 
@@ -177,8 +182,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `UserID`, `FIO`, `Phone`, `Data`, `HoverData`) VALUES
-(1, '123456789', 'Elshod Musurmonov', '908830450', '2023-12-16 07:32:04', '2023-12-16 15:06:46'),
-(2, '1702721972', 'ATKO oquv markazi', '945204004', '2023-12-16 10:19:32', '2023-12-16 15:07:05');
+(1, '123456789', 'Elshod Musurmonov', '908830451', '2023-12-16 07:32:04', '2023-12-17 20:02:33'),
+(2, '1702721972', 'ATKO oquv markazi', '945204004', '2023-12-16 10:19:32', '2023-12-17 20:03:04'),
+(3, '1702843774', 'Elshod', '908830450', '2023-12-17 20:09:34', '2023-12-17 20:09:34');
 
 -- --------------------------------------------------------
 
@@ -256,7 +262,7 @@ ALTER TABLE `coues_mavzu`
 -- AUTO_INCREMENT для таблицы `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `cours_test`
@@ -274,7 +280,7 @@ ALTER TABLE `cours_test_javob`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `user_cours`
