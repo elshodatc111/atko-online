@@ -1,9 +1,9 @@
 <?php
     $botToken="6917142963:AAFYIdT3j7e257CEspfTwQdAQLzQeqR0kgg";
-    $name = $_POST['ISM'];
-    $phone = $_POST['PHONE'];
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
     $email = "atko.uz";
-    $text = $_POST['TEXT'];
+    $text = $_POST['text'];
     echo $name." ".$phone." ".$email." ".$text;
     
     $website="https://api.telegram.org/bot".$botToken;
@@ -36,6 +36,6 @@
     curl_close($ch);
     
     
-    header("location: ../../index.php");
+    header("location: ../../contact.php?send=true");
     
 ?>

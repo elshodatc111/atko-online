@@ -66,10 +66,10 @@
 						<div class="section-title text-white text-left">
 							<h2>Bizga murojat qoldiring</h2>
 						</div>
-						<form class="contact-form">
-							<input type="text" placeholder="Ismingiz">
-							<input type="text" placeholder="Telefon raqamingiz">
-							<textarea placeholder="Murojatingiz mazmuni"></textarea>
+						<form class="contact-form" action="./config/sms/bot.php" method="POST">
+							<input type="text" name="name" placeholder="Ismingiz"     required>
+							<input type="text" name="phone" placeholder="Telefon raqamingiz"  required>
+							<textarea placeholder="Murojatingiz mazmuni" name="text" required></textarea>
 							<button class="site-btn">Yuborish</button>
 						</form>
 					</div>
@@ -88,11 +88,11 @@
 							<li>+998 91 950 1101</li>
 							<li>atkoteams@gmail.com</li>
 						</ul>
-						<div class="social-links">
-							<a href="#"><i class="fa fa-telegram"></i></a>
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-instagram"></i></a>
-							<a href="#"><i class="fa fa-youtube"></i></a>
+						<div class="social-links" style="font-size:24px;">
+							<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:24px;"></i></a>
+							<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:24px;"></i></a>
+							<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:24px;"><i class="fa fa-instagram"></i></a>
+							<a href="#"><i class="fa fa-youtube" style="font-size:24px;"></i></a>
 						</div>
 					</div>
 				</div>
