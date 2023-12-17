@@ -59,16 +59,15 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<img src="img/logo.png" alt="">
+						<a href="index.php"><img src="img/logo.png" alt=""></a>
 					</div>
 					<div class="nav-switch">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-9">
-					<nav class="main-menu">
+					<nav class="main-menu" style="text-align:right">
 						<ul>
-							<li><a href="index.php">Bosh sahifa</a></li>
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
 							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>

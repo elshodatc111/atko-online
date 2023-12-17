@@ -33,16 +33,15 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<img src="img/logo.png" alt="">
+						<a href="index.php"><img src="img/logo.png" alt=""></a>
 					</div>
 					<div class="nav-switch">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-9">
-					<nav class="main-menu">
+					<nav class="main-menu" style="text-align:right">
 						<ul>
-							<li><a href="index.php">Bosh sahifa</a></li>
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
 							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>
@@ -135,67 +134,30 @@
 			</div>
 		</div>
 	</section>
-	<!-- single course section end -->
-
-
-	<!-- Page -->
+	
 	<section class="realated-courses spad">
 		<div class="course-warp">
 			<h2 class="rc-title">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
 			<div class="rc-slider owl-carousel">
-				<!-- course -->
+				<?php
+					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 4";
+					$res44 = $conn->query($sql44);
+					while ($row44 = $res44->fetch()) {
+				?>
 				<div class="course-item">
-					<a href="./course.php">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg" >
-							<div class="price">Narxi: 150 000 so'm</div>
+					<a href="./course.php?CoursID=<?php echo $row44['CoursID']; ?>">
+						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" >
+							<div class="price">Narxi: <?php echo $row44['CoursText']; ?> so'm</div>
 						</div>
 						<div class="course-info">
 							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
+								<h5><?php echo $row44['CoursName']; ?></h5>
+								<p><?php echo $row44['CoursPrice']; ?></p>
 							</div>
 						</div>
 					</a>
 				</div>
-				<div class="course-item">
-					<a href="./course.php">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							<div class="price">Narxi: 150 000 so'm</div>
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="course-item">
-					<a href="./course.php">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							<div class="price">Narxi: 150 000 so'm</div>
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="course-item">
-					<a href="./course.php">
-						<div class="course-thumb set-bg" data-setbg="img/courses/1.jpg">
-							<div class="price">Narxi: 150 000 so'm</div>
-						</div>
-						<div class="course-info">
-							<div class="course-text">
-								<h5>Art & Crafts</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-							</div>
-						</div>
-					</a>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</section>

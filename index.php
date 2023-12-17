@@ -26,16 +26,15 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<img src="img/logo.png" alt="">
+						<a href="index.php"><img src="img/logo.png" alt=""></a>
 					</div>
 					<div class="nav-switch">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-9">
-					<nav class="main-menu">
+					<nav class="main-menu" style="text-align:right">
 						<ul>
-							<li><a href="index.php">Bosh sahifa</a></li>
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
 							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>
@@ -56,104 +55,57 @@
 		</div>
 	</section>
 	<section class="categories-section spad">
-		<div class="container">
-			<div class="section-title">
-				<h2>Yangi kurslar</h2>
-				<p>Eng yangi qo'shilgan video kurslar.</p>
+		<div class="container pt-0">
+			<div class="section-title m-0">
+				<h2 class="m-0">Yangi kurslar</h2>
+				<p class="m-0">Eng yangi qo'shilgan video kurslar.</p>
 			</div>
 			<div class="row">
+				<?php
+					$sql1 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 6";
+					$res1 = $conn->query($sql1);
+					while ($row1 = $res1->fetch()) {
+				?>
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
-						<a href="./course.php?CoursID=">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
+						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>">
+							<div class="ci-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>"></div>
 							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
+								<h5><?php echo $row1['CoursName']; ?></h5>
+								<p><?php echo $row1['CoursText']; ?></p>
+								<span>Narxi: <?php echo $row1['CoursPrice']; ?> so'm</span>
 							</div>
 						</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<a href="./course.php">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<a href="./course.php">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<a href="./course.php">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<a href="./course.php">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<a href="./course.php">
-							<div class="ci-thumb set-bg" data-setbg="img/categories/1.jpg"></div>
-							<div class="ci-text">
-								<h5>IT Development</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur</p>
-								<span>Narxi: 150 000 so'm</span>
-							</div>
-						</a>
-					</div>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</section>
-	<section class="signup-section spad">
-		<div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="signup-warp">
-						<div class="section-title text-white text-left">
-							<h2>Biz bilan bog'laning</h2>
+	
+	<section class="realated-courses spad">
+		<div class="course-warp">
+			<h2 class="rc-title">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
+			<div class="rc-slider owl-carousel">
+				<?php
+					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 4";
+					$res44 = $conn->query($sql44);
+					while ($row44 = $res44->fetch()) {
+				?>
+				<div class="course-item">
+					<a href="./course.php?CoursID=<?php echo $row44['CoursID']; ?>">
+						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" >
+							<div class="price">Narxi: <?php echo $row44['CoursText']; ?> so'm</div>
 						</div>
-						<form action="./config/sms/bot.php" method="POST" class="signup-form">
-							<input type="text" name="ISM" placeholder="Ismingiz">
-							<input type="text" name="PHONE" class="phone" placeholder="Telefon raqamingiz">
-							<textarea type="text" name="TEXT" placeholder="Murojat matni"></textarea>
-							<button class="site-btn">Yuborish</button>
-						</form>
-					</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><?php echo $row44['CoursName']; ?></h5>
+								<p><?php echo $row44['CoursPrice']; ?></p>
+							</div>
+						</div>
+					</a>
 				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</section>
