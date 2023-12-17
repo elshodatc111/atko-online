@@ -69,9 +69,6 @@
 				<div class="row">
 					<div class="col-lg-6 offset-lg-3">
                         <h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan.</h4>
-						<?php 
-							if(isset($_COOKIE['code'])){echo $_COOKIE['code'];}
-						?>
 						<form action="./config/login/login.php" method="POST" class="course-search-form text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
                             <h4 class="text-dark">Telefon raqam</h3>
 							<input type="text" class="form-control w-100 my-2 phone" name="phone" placeholder="XX XXX XXXX" required>

@@ -5,7 +5,7 @@
             'number'=>$phone,
             'text'=>$text,
             'user_id'=>'5139864291',
-            'token'=>"emNlVoGxdivUfMjAKYXPIORyDFLkqtSsnEZHarTQuBhbJgp",
+            'token'=>"PVDdSjstLFTQHMgpxGRiYbqZyheoJKrvaUfmNulBIEXknOA",
             'id'=>'5390'
         ]);
         $url = "https://api.xssh.uz/smsv1/?data=".urlencode($data);
@@ -15,5 +15,10 @@
         $res = curl_exec($ch);
         $smsArray = json_decode($res, true);
         print_r($smsArray);
+        if($smsArray['code']==='200'){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 ?>
