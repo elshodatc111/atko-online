@@ -12,6 +12,7 @@
 	<meta name="description" content="ATKO o'quv markazi">
 	<meta name="keywords" content="">
 	<meta name="author" content="Elshod Musurmonov">
+	<meta name="google-site-verification" content="uiJQYjpXbqbGoFs_viIdOOh1FUbsdkF_B6LUUaB8i0w" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="img/favicon.ico" rel="shortcut icon"/>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
