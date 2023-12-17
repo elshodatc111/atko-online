@@ -69,9 +69,6 @@
 				<div class="row">
 					<div class="col-lg-6 offset-lg-3">
                         <h4 class="text-danger w-100 text-center" style="display:<?php if(!isset($_GET['err'])){echo 'none;';} ?>">Tasdiqlash kodi noto'g'ri.</h4>
-						<?php 
-							if(isset($_COOKIE['code'])){echo $_COOKIE['code'];}
-						?>
 						<form action="./config/login/reg.php" method="POST" class="course-search-form text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
                             <h4 class="text-dark">Ismingiz</h3>
 							<input type="text" class="form-control w-100 my-2" name="fio" placeholder="Ismingiz" required>

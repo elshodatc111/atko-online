@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
     }
     if($i>0){
         $code = rand(100000, 999999);
-        $text = "Tasdiqlash kodi: ".$code."\nATKO o‘quv markazi. Ma‘lumot uchun: 91 950 1101";
+        $text = "Tasdiqlash kodi: ".$code;
         sendMessge($phone,$text);
         setcookie("code", $code, time() + 300, '/');
         setcookie("phone", $phone, time() + 300, '/');
