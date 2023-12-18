@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 17 2023 г., 21:15
--- Версия сервера: 10.4.25-MariaDB
--- Версия PHP: 8.1.10
+-- Время создания: Дек 18 2023 г., 10:42
+-- Версия сервера: 10.4.28-MariaDB
+-- Версия PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `atko`
+-- База данных: `online`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(25) NOT NULL,
+  `username` varchar(70) NOT NULL,
+  `password` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `admin`
+--
+
+INSERT INTO `admin` (`id`, `user_id`, `username`, `password`) VALUES
+(1, '0000000001', 'Admin123', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -40,7 +60,7 @@ CREATE TABLE `coues_mavzu` (
   `Name1` varchar(100) NOT NULL,
   `Name2` varchar(100) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `coues_mavzu`
@@ -79,7 +99,7 @@ CREATE TABLE `cours` (
   `TecherImage` varchar(120) NOT NULL,
   `Muddat` int(3) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `cours`
@@ -106,7 +126,7 @@ CREATE TABLE `cours_test` (
   `TestID` varchar(20) NOT NULL,
   `TestSavol` varchar(120) NOT NULL,
   `TestType` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `cours_test`
@@ -133,7 +153,7 @@ CREATE TABLE `cours_test_javob` (
   `JavobID` varchar(20) NOT NULL,
   `Javob` varchar(120) NOT NULL,
   `Status` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `cours_test_javob`
@@ -175,7 +195,7 @@ CREATE TABLE `user` (
   `Phone` varchar(45) NOT NULL,
   `Data` timestamp NOT NULL DEFAULT current_timestamp(),
   `HoverData` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user`
@@ -199,7 +219,7 @@ CREATE TABLE `user_cours` (
   `Start` date NOT NULL,
   `End` date NOT NULL,
   `Text` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `user_cours`
@@ -211,6 +231,12 @@ INSERT INTO `user_cours` (`id`, `UserID`, `CoursID`, `Start`, `End`, `Text`) VAL
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `coues_mavzu`
@@ -251,6 +277,12 @@ ALTER TABLE `user_cours`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `coues_mavzu`
