@@ -17,18 +17,19 @@
       <h1>ATKO</h1>
     </div>
     <div class="login-box">
-      <form class="login-form" action="index.html">
+      <?php if(isset($_GET['err'])){echo "<p>Login yoki parol xato</p>";} ?>
+      <form class="login-form" action="./connect/login/login.php" method="POST">
         <h3 class="login-head"><i class="bi bi-person me-2"></i>Kirish</h3>
         <div class="mb-3">
           <label class="form-label">USERNAME</label>
-          <input class="form-control" type="text" placeholder="Email" autofocus>
+          <input class="form-control" name="username" type="text" placeholder="Email" autofocus>
         </div>
         <div class="mb-3">
           <label class="form-label">PASSWORD</label>
-          <input class="form-control" type="password" placeholder="Password">
+          <input class="form-control" name="password" type="password" placeholder="Password">
         </div>
         <div class="mb-3 btn-container d-grid">
-          <button class="btn btn-primary btn-block"><i class="bi bi-box-arrow-in-right me-2 fs-5"></i>Kirish</button>
+          <button class="btn btn-primary btn-block" type="submit" name="login"><i class="bi bi-box-arrow-in-right me-2 fs-5"></i>Kirish</button>
         </div>
       </form>
     </div>
