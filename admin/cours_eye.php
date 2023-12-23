@@ -5,6 +5,9 @@
   if(!isset($_SESSION['UserID'])){
     header("location: ./login.php");
   }
+  $sql = "SELECT * FROM `cours` WHERE `CoursID`='".$_GET['CoursID']."'";
+  $res = $conn->query($sql);
+  $row = $res->fetch();
 ?>
 <html lang="en">
   <head>
@@ -72,15 +75,15 @@
                     <section class="invoice">
                         <div class="row mb-4">
                             <div class="col-6">
-                                <h2 class="page-header"><i class="bi bi-globe"></i> Kursning nomi</h2>
+                                <h2 class="page-header"><i class="bi bi-globe"></i> <?php echo $row['CoursName']; ?></h2>
                             </div>
                             <div class="col-6">
-                                <h5 class="text-end">Kurs yaratildi: 01/01/2016</h5>
+                                <h5 class="text-end">Kurs yaratildi: <?php echo $row['Data']; ?></h5>
                             </div>
                         </div>
                         <div class="row invoice-info">
                             <div class="col-lg-4 text-center">
-                                <img src="https://searchthisweb.com/wallpaper/reine_4000x2662_ruwae.jpg" style="width:200px">
+                                <img src="../img/kurs/<?php echo $row['CoursImage']; ?>" style="width:200px">
                                 <form action="" method="post">
                                     <input type="file" class="form-control w-50 my-2" style="margin: 0 auto;" required>
                                     <button class="btn btn-success w-50">Rasmni yangilash</button>
@@ -88,22 +91,18 @@
                             </div>
                             <div class="col-lg-4">
                                 <address>
-                                    <strong>Kurs narxi: </strong> <b>150000 so'm</b><br>
-                                    <strong>Mavzular soni: </strong> <b>15</b><br>
-                                    <strong>Kurs tili: </strong> <b>O'zbek</b><br>
-                                    <strong>Kurs davomiyligi: </strong> <b>00:00:00</b><br>
-                                    <strong>Kurs muddati: </strong> <b>30 kun</b><br>
+                                    <strong>Kurs narxi: </strong> <b><?php echo $row['CoursPrice']; ?> so'm</b><br>
+                                    <strong>Mavzular soni: </strong> <b><?php echo $row['CoursMavzu']; ?></b><br>
+                                    <strong>Kurs tili: </strong> <b><?php echo $row['CoursTil']; ?></b><br>
+                                    <strong>Kurs davomiyligi: </strong> <b><?php echo $row['CoursDavomiy']; ?></b><br>
+                                    <strong>Kurs muddati: </strong> <b><?php echo $row['Muddat']; ?> kun</b><br>
                                     <strong>Kurs haqida qisqacha: </strong> <br>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus omnis magnam voluptas recusandae 
-                                        molestiae! Animi dolorum ea doloremque reprehenderit eum, perferendis est? Debitis, corrupti 
-                                        esse fugiat quisquam recusandae ipsa ullam!
-                                    </p>
+                                    <p><?php echo $row['CoursText']; ?></p>
                                 </address>
                             </div>
                             <div class="col-lg-4 text-center">
-                                <b><img src="https://searchthisweb.com/wallpaper/reine_4000x2662_ruwae.jpg" style="width:100px;height:100px;border-radius: 50%;"></b><br><br>
-                                <b>O'qituvchi: </b> Elshod Musurmonov<br>
+                                <b><img src="../img/techer/<?php echo $row['TecherImage']; ?>" style="width:100px;height:100px;border-radius: 50%;"></b><br><br>
+                                <b>O'qituvchi: </b><?php echo $row['CoursTecher']; ?><br>
                                 <form action="" method="post">
                                     <input type="file" class="form-control w-50 my-2" style="margin: 0 auto;" required>
                                     <button class="btn btn-success w-50">Rasmni yangilash</button>
@@ -113,15 +112,7 @@
                         <div class="row">
                             <div class="col-12 my-3">
                                 <strong>Kurs haqida to'liq: </strong><br> 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequatur nihil eaque quod 
-                                    delectus dolorem, laboriosam magnam labore perspiciatis placeat a nemo repudiandae quas et, 
-                                    facilis velit odio rem ad. Quas saepe et praesentium repudiandae fugiat cum aliquid dicta, similique 
-                                    magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum nulla voluptatem, non autem minus 
-                                    culpa fugit aliquid nisi earum architecto porro. Reprehenderit! Quas saepe et praesentium repudiandae 
-                                    fugiat cum aliquid dicta, similique magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum 
-                                    nulla voluptatem, non autem minus culpa fugit aliquid nisi earum architecto porro. Reprehenderit!
-                                </p>
+                                <p><?php echo $row['CoursAbout']; ?></p>
                             </div>
                             <div class="col-12 table-responsive">
                                 <table class="table table-striped text-center">
@@ -137,32 +128,32 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $sql1 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `MavzuNumber` ASC";
+                                            $res1 = $conn->query($sql1);
+                                            $i = 1;
+                                            while ($row1 = $res1->fetch()) {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td><a class="btn btn-primary p-0 px-1" href="#">15</a></td>
-                                            <td>1</td>
+                                            <td><?php echo $i; ?></td>
+                                            <td><?php echo $row1['MavzuName']; ?></td>
+                                            <td><?php echo $row1['Video']; ?></td>
+                                            <td><?php echo $row1['VideoLine']; ?></td>
+                                            <?php
+                                                $sql2 = "SELECT * FROM `cours_test` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$row1['MavzuID']."'";
+                                                $res2 = $conn->query($sql2);
+                                                $t = 0;
+                                                while ($row2 = $res2->fetch()) {$t++;}
+                                            ?>
+                                            <td><a class="btn btn-primary p-0 px-1"><?php echo $t; ?></a></td>
+                                            <td><?php echo $row1['MavzuNumber']; ?></td>
                                             <td class="text-center">
-                                                <a class="btn btn-primary" href="cours_mavzu_eye.php"><i class="bi bi-eye"></i></a>
-                                                <a class="btn btn-primary" href="cours_mavzu_edit.php"><i class="bi bi-pencil-square"></i></a>
-                                                <a class="btn btn-primary" href="#"><i class="bi bi-trash"></i></a>
+                                                <a class="btn btn-primary" href="cours_mavzu_eye.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-eye"></i></a>
+                                                <a class="btn btn-primary" href="cours_mavzu_edit.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-pencil-square"></i></a>
+                                                <a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-trash"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td><a class="btn btn-primary p-0 px-1" href="#">15</a></td>
-                                            <td>1</td>
-                                            <td class="text-center">
-                                                <a class="btn btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                                                <a class="btn btn-primary" href="cours_mavzu_edit.php"><i class="bi bi-pencil-square"></i></a>
-                                                <a class="btn btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                            </td>
-                                        </tr>
+                                        <?php $i++; } ?>
                                     </tbody>
                                 </table>
                             </div>

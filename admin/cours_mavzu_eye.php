@@ -5,6 +5,9 @@
   if(!isset($_SESSION['UserID'])){
     header("location: ./login.php");
   }
+  $sql = "SELECT * FROM `coues_mavzu` WHERE `MavzuID`='".$_GET['MavzuID']."'";
+  $res = $conn->query($sql);
+  $row = $res->fetch();
 ?>
 <html lang="en">
   <head>
@@ -62,7 +65,7 @@
                 <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
                 <li class="breadcrumb-item">Kurs mavzu haqida</li>
-                <li class="breadcrumb-item "><a href="cours.php">Kurs haqida</a></li>
+                <li class="breadcrumb-item "><a href="cours_eye.php?CoursID=<?php echo $_GET['CoursID']; ?>">Kurs haqida</a></li>
                 <li class="breadcrumb-item "><a href="cours.php">Kurslar</a></li>
                 <li class="breadcrumb-item active"><a href="cours_new.php">Bosh sahifa</a></li>
             </ul>
@@ -73,50 +76,35 @@
                     <section class="invoice">
                         <div class="row mb-4">
                             <div class="col-6">
-                                <h2 class="page-header"><i class="bi bi-globe"></i> Kursning nomi</h2>
+                                <h2 class="page-header"><i class="bi bi-globe"></i> <?php echo $row['MavzuName']; ?></h2>
                             </div>
                             <div class="col-6">
-                                <h5 class="text-end">Kurs yaratildi: 01/01/2016</h5>
+                                <h5 class="text-end">Kurs yaratildi: <?php echo $row['Data']; ?></h5>
                             </div>
                         </div>
                         <div class="row invoice-info">
                             <div class="col-lg-4 text-center">
-                                video uchun joy
+                                <video id='myvideo' controls style="width:100%;border:3px solid red;" controlsList="nodownload">
+                                    <source src="https://atko.tech/my_crm/video/<?php echo $row['Video']; ?>" type="video/mp4">
+                                </video>
                             </div>
                             <div class="col-lg-8">
                                 <address>
-                                    <strong>Kurs nomi: </strong> <b>150000 so'm</b><br>
-                                    <strong>Mavzu nomi: </strong> <b>15</b><br>
-                                    <strong>Mavzu video link: </strong> <b>O'zbek</b><br>
-                                    <strong>Video uzunligi: </strong> <b>00:00:00</b><br>
-                                    <strong>Mavzu tartib raqami: </strong> <b>30 </b><br>
+                                    <strong>Mavzu nomi: </strong> <b><?php echo $row['MavzuName']; ?></b><br>
+                                    <strong>Mavzu video link: </strong> <b><?php echo $row['Video']; ?></b><br>
+                                    <strong>Video uzunligi: </strong> <b><?php echo $row['VideoLine']; ?></b><br>
+                                    <strong>Mavzu tartib raqami: </strong> <b><?php echo $row['MavzuNumber']; ?> </b><br>
                                 </address>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 my-3">
                                 <strong>Mavzu haqida: </strong><br> 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequatur nihil eaque quod 
-                                    delectus dolorem, laboriosam magnam labore perspiciatis placeat a nemo repudiandae quas et, 
-                                    facilis velit odio rem ad. Quas saepe et praesentium repudiandae fugiat cum aliquid dicta, similique 
-                                    magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum nulla voluptatem, non autem minus 
-                                    culpa fugit aliquid nisi earum architecto porro. Reprehenderit! Quas saepe et praesentium repudiandae 
-                                    fugiat cum aliquid dicta, similique magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum 
-                                    nulla voluptatem, non autem minus culpa fugit aliquid nisi earum architecto porro. Reprehenderit!
-                                </p>
+                                <p><?php echo $row['MavzuAbout'] ?></p>
                             </div>
                             <div class="col-6 my-3">
                                 <strong>Mavzu lug'ati: </strong><br> 
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequatur nihil eaque quod 
-                                    delectus dolorem, laboriosam magnam labore perspiciatis placeat a nemo repudiandae quas et, 
-                                    facilis velit odio rem ad. Quas saepe et praesentium repudiandae fugiat cum aliquid dicta, similique 
-                                    magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum nulla voluptatem, non autem minus 
-                                    culpa fugit aliquid nisi earum architecto porro. Reprehenderit! Quas saepe et praesentium repudiandae 
-                                    fugiat cum aliquid dicta, similique magnam, sequi reiciendis. Necessitatibus quibusdam, nostrum cum 
-                                    nulla voluptatem, non autem minus culpa fugit aliquid nisi earum architecto porro. Reprehenderit!
-                                </p>
+                                <p><?php echo $row['MavzuLugat'] ?></p>
                             </div>
                             <div class="col-12 table-responsive">
                                 <table class="table table-striped text-center">
@@ -130,26 +118,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            $sqlt = "SELECT * FROM `cours_test` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
+                                            $rest = $conn->query($sqlt);
+                                            $t = 1;
+                                            while ($rowt = $rest->fetch()) {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>1</td>
+                                            <td><?php echo $t; ?></td>
+                                            <td><?php echo $rowt['TestSavol']; ?></td>
+                                            <td><?php echo $rowt['TestType']; ?></td>
                                             <td>
                                                 <table class="table">
+                                                    <?php
+                                                        $sqlj = "SELECT * FROM `cours_test_javob` WHERE `TestID`='".$rowt['TestID']."'";
+                                                        $resj = $conn->query($sqlj);
+                                                        while ($rowj = $resj->fetch()) {
+                                                    ?>
                                                     <tr>
-                                                        <td>sssss</td>
-                                                        <td>to'g'ri</td>
+                                                        <td><?php echo $rowj['Javob']; ?></td>
+                                                        <td><?php echo $rowj['Status']; ?></td>
+                                                        <td><a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>&JavobID=<?php echo $rowj['JavobID']; ?>"><i class="bi bi-trash"></i></a></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>sssss</td>
-                                                        <td>noto'g'ri</td>
-                                                    </tr>
+                                                    <?php } ?>
                                                 </table>
                                             </td>
                                             <td class="text-center">
-                                                <a class="btn btn-primary" href="#"><i class="bi bi-trash"></i></a>
+                                                <a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>"><i class="bi bi-trash"></i></a>
                                             </td>
                                         </tr>
+                                        <?php $t++;} ?>
                                     </tbody>
                                 </table>
                             </div>
