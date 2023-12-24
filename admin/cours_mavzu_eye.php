@@ -67,7 +67,7 @@
                 <li class="breadcrumb-item">Kurs mavzu haqida</li>
                 <li class="breadcrumb-item "><a href="cours_eye.php?CoursID=<?php echo $_GET['CoursID']; ?>">Kurs haqida</a></li>
                 <li class="breadcrumb-item "><a href="cours.php">Kurslar</a></li>
-                <li class="breadcrumb-item active"><a href="cours_new.php">Bosh sahifa</a></li>
+                <li class="breadcrumb-item active"><a href="index.php">Bosh sahifa</a></li>
             </ul>
         </div>
         <div class="row">
@@ -138,13 +138,13 @@
                                                     <tr>
                                                         <td><?php echo $rowj['Javob']; ?></td>
                                                         <td><?php echo $rowj['Status']; ?></td>
-                                                        <td><a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>&JavobID=<?php echo $rowj['JavobID']; ?>"><i class="bi bi-trash"></i></a></td>
+                                                        <td><a class="btn btn-primary" href="./connect/cours/test_javob_del.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>&JavobID=<?php echo $rowj['JavobID']; ?>"><i class="bi bi-trash"></i></a></td>
                                                     </tr>
                                                     <?php } ?>
                                                 </table>
                                             </td>
                                             <td class="text-center">
-                                                <a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>"><i class="bi bi-trash"></i></a>
+                                                <a class="btn btn-primary" href="./connect/cours/test_savol_del.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>&TestID=<?php echo $rowt['TestID']; ?>"><i class="bi bi-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php $t++;} ?>
@@ -152,31 +152,43 @@
                                 </table>
                             </div>
                         </div>
-                        <form action="">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <h4>Yangi test qo'shish</h4>
+                                <div class="col-lg-6">
+                                    <form action="./connect/cours/test_savol_plus.php?CoursID=<?php echo $_GET['CoursID'] ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" method="post">
+                                        <h4>Yangi test qo'shish</h4>
+                                        <label class="mt-2">Test turini tanlang</label>
+                                        <select type="text" name="Type" class="form-control" required>
+                                            <option value="choose">choose (Faqat bitta to'g'ri)</option>
+                                            <option value="chechbox">chechbox (Javoblar bir nechra)</option>
+                                            <option value="insert">insert (To'g'ri javobni kiritish)</option>
+                                        </select>
+                                        <label class="mt-2">Test Savoli</label>
+                                        <input type="text" name="TestSavol" class="form-control" required>
+                                        <button class="btn btn-success mt-3" name="TestPlus">Yangi  test qo'shish</button>
+                                    </form>
                                 </div>
                                 <div class="col-lg-6">
-                                    <label class="mt-2">Mavzuni tanlang</label>
-                                    <select type="text" class="form-control" required>
-                                        <option value="">Tanlang</option>
-                                    </select>
-                                    <label class="mt-2">Tartib raqami</label>
-                                    <input type="text" class="form-control" required>
-                                    <label class="mt-2">Mavzu haqida</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="mt-2">Mavzu video link</label>
-                                    <input type="text" class="form-control" required>
-                                    <label class="mt-2">Video uzunligi(00:00:00)</label>
-                                    <input type="text" class="form-control" required>
-                                    <label class="mt-2">Mavzuga oit testlar</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
-                                </div>
-                                <div class="col-12 text-center">
-                                    <button class="btn btn-success mt-3">Yangi mavzuni saqlash</button>
+                                    <form action="./connect/cours/cours_test_javob_plus.php?CoursID=<?php echo $_GET['CoursID'] ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" method="post">
+                                        <h4>Yangi test javobi qo'shish</h4>
+                                        <label class="mt-2">Test savolini tanlang</label>
+                                        <select type="text" name="TestID" class="form-control" required>
+                                            <?php
+                                                $sqltest = "SELECT * FROM `cours_test` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
+                                                $restest = $conn->query($sqltest);
+                                                while ($rowtest = $restest->fetch()) {
+                                                    echo "<option value=".$rowtest['TestID'].">".$rowtest['TestSavol']."</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                        <label class="mt-2">Javob xolati</label>
+                                        <select type="text" name="Status" class="form-control" required>
+                                            <option value="true">true</option>
+                                            <option value="false">false</option>
+                                        </select>
+                                        <label class="mt-2">Test javobi</label>
+                                        <input type="text" name="Javob" class="form-control" required>
+                                        <button class="btn btn-success mt-3" name="testjavobplus">Test javobini saqlash</button>
+                                    </form>
                                 </div>
                             </div>
                             

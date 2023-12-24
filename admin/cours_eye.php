@@ -66,7 +66,7 @@
                 <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
                 <li class="breadcrumb-item">Kursni haqida</li>
                 <li class="breadcrumb-item "><a href="cours.php">Kurslar</a></li>
-                <li class="breadcrumb-item active"><a href="cours_new.php">Bosh sahifa</a></li>
+                <li class="breadcrumb-item active"><a href="index.php">Bosh sahifa</a></li>
             </ul>
         </div>
         <div class="row">
@@ -84,9 +84,9 @@
                         <div class="row invoice-info">
                             <div class="col-lg-4 text-center">
                                 <img src="../img/kurs/<?php echo $row['CoursImage']; ?>" style="width:200px">
-                                <form action="" method="post">
-                                    <input type="file" class="form-control w-50 my-2" style="margin: 0 auto;" required>
-                                    <button class="btn btn-success w-50">Rasmni yangilash</button>
+                                <form action="./connect/cours/cours_image_edet.php?CoursID=<?php echo $_GET['CoursID']; ?>" method="POST" enctype="multipart/form-data">
+                                    <input type="file" name="CoursImage" class="form-control w-50 my-2" style="margin: 0 auto;" required>
+                                    <button class="btn btn-success w-50" name="EditImageCours">Rasmni yangilash</button>
                                 </form>
                             </div>
                             <div class="col-lg-4">
@@ -103,9 +103,9 @@
                             <div class="col-lg-4 text-center">
                                 <b><img src="../img/techer/<?php echo $row['TecherImage']; ?>" style="width:100px;height:100px;border-radius: 50%;"></b><br><br>
                                 <b>O'qituvchi: </b><?php echo $row['CoursTecher']; ?><br>
-                                <form action="" method="post">
-                                    <input type="file" class="form-control w-50 my-2" style="margin: 0 auto;" required>
-                                    <button class="btn btn-success w-50">Rasmni yangilash</button>
+                                <form action="./connect/cours/cours_tech_img_edit.php?CoursID=<?php echo $_GET['CoursID']; ?>" method="post"  enctype="multipart/form-data">
+                                    <input type="file" name="CoursImage2" class="form-control w-50 my-2" style="margin: 0 auto;" required>
+                                    <button class="btn btn-success w-50" name="EditImageTech">Rasmni yangilash</button>
                                 </form>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                             <td class="text-center">
                                                 <a class="btn btn-primary" href="cours_mavzu_eye.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-eye"></i></a>
                                                 <a class="btn btn-primary" href="cours_mavzu_edit.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-pencil-square"></i></a>
-                                                <a class="btn btn-primary" href="#?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-trash"></i></a>
+                                                <a class="btn btn-primary" href="./connect/cours/cours_mavzu_del.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $row1['MavzuID']; ?>"><i class="bi bi-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php $i++; } ?>
@@ -158,29 +158,29 @@
                                 </table>
                             </div>
                         </div>
-                        <form action="">
+                        <form action="./connect/cours/cours_mavzu_plus.php?CoursID=<?php echo $_GET['CoursID']; ?>" method="POST">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4>Yangi mavzu qo'shish</h4>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="mt-2">Mavzu nomi</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" name="Mavzu" class="form-control" required>
                                     <label class="mt-2">Tartib raqami</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="number" name="MavzuNumber" class="form-control" required>
                                     <label class="mt-2">Mavzu haqida</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea cols="30" name="MavzuAbout" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="col-lg-6">
-                                    <label class="mt-2">Mavzu video link</label>
-                                    <input type="text" class="form-control" required>
+                                    <label class="mt-2">Mavzu video link (<b>https://atko.tech/my_crm/video/</b>)</label>
+                                    <input type="text" name="VideoLink" class="form-control" required>
                                     <label class="mt-2">Video uzunligi(00:00:00)</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" name="VideoLine" class="form-control" required>
                                     <label class="mt-2">Mavzuga oit testlar</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea cols="30" name="MavzuTest" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-success mt-3">Yangi mavzuni saqlash</button>
+                                    <button class="btn btn-success mt-3" name="MavzuPlus">Yangi mavzuni saqlash</button>
                                 </div>
                             </div>
                             

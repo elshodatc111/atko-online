@@ -112,18 +112,7 @@
 						<button class="btn btn-danger p-3 m-0 input-btn">Sotib olish</button>
 						<div id="tulovpay"></div>
 						<div>
-							<form method="post" action="http://atko.uz/kabinet.php">
-								<script src="https://my.click.uz/pay/checkout.js"
-											class="uzcard_payment_button"
-											data-service-id="30782"
-											data-merchant-id="23110"
-											data-transaction-param="MERCHANT_TRANS_ID"
-											data-merchant-user-id="36901"
-											data-amount="1000"
-											data-card-type="uzcard"
-											data-label="Uzkard"
-								></script>
-							</form>
+							To'olv
 							
 						</div>
 						<?php } ?>

@@ -63,44 +63,40 @@
           <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
           <li class="breadcrumb-item">Yangi kurs</li>
           <li class="breadcrumb-item "><a href="cours.php">Kurslar</a></li>
-          <li class="breadcrumb-item active"><a href="cours_new.php">Bosh sahifa</a></li>
+          <li class="breadcrumb-item active"><a href="index.php">Bosh sahifa</a></li>
         </ul>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <form action="" class="row">
+              <form action="./connect/cours/cours_plus.php" method="POST" class="row">
                 <div class="col-lg-6">
                     <label class="mt-2" style="font-weight:700;">Kurs nomi</label>
-                    <input type="text" class="form-control" placeholder="Kurs nomi" required>
-                    <label class="mt-2" style="font-weight:700;">Kurs rasmi</label>
-                    <input type="file" class="form-control" placeholder="Kurs rasmi" required>
+                    <input type="text" name="CoursName" class="form-control" placeholder="Kurs nomi" required>
                     <label class="mt-2" style="font-weight:700;">Kurs haqida qisqacha</label>
-                    <textarea cols="30" rows="10" required placeholder="Kurs haqida to'liq malumot" class="form-control"></textarea>
+                    <textarea cols="30" name="CoursQisqa" rows="10" required placeholder="Kurs haqida qisqacha malumot" class="form-control"></textarea>
                     <label class="mt-2" style="font-weight:700;">Kurs narxi</label>
-                    <input type="number" class="form-control" placeholder="Kurs narxi" required>
+                    <input type="number" name="CoursPrase" class="form-control" placeholder="Kurs narxi" required>
                 </div>
                 <div class="col-lg-6">
                     <label class="my-2 mt-3" style="font-weight:700;">Kurs mavzulari soni</label>
-                    <input type="number" class="form-control" placeholder="Kurs mavzular soni" required>
+                    <input type="number" name="CoursMavzu" class="form-control" placeholder="Kurs mavzular soni" required>
                     <label class="my-2" style="font-weight:700;">Kurs tili</label>
-                    <input type="text" class="form-control" placeholder="Kurs nomi" required>
+                    <input type="text" name="CoursTil" class="form-control" placeholder="Kurs nomi" required>
                     <label class="my-2" style="font-weight:700;">Kurs davomiyligi</label>
-                    <input type="text" class="form-control" placeholder="Kurs nomi" required>
+                    <input type="text" name="CoursDavomiy" class="form-control" placeholder="Kurs nomi" required>
                     <label class="my-2" style="font-weight:700;">Kurs muddati(kun)</label>
-                    <input type="number" class="form-control" placeholder="Kurs nomi" required>
-                    <label class="my-2" style="font-weight:700;">Kurs o'qituvchi</label>
-                    <input type="text" class="form-control" placeholder="Kurs nomi" required>
-                    <label class="my-2" style="font-weight:700;">Kurs o'qituvchi Rasmi</label>
-                    <input type="file" class="form-control" placeholder="Kurs nomi" required>
+                    <input type="number" name="CoursMuddat" class="form-control" placeholder="Kurs nomi" required>
+                    <label class="my-2 mt-3" style="font-weight:700;">Kurs o'qituvchi</label>
+                    <input type="text" name="CoursTech" class="form-control" placeholder="Kurs nomi" required>
                 </div>
                 <div class="col-12">
                     <label class="my-2" style="font-weight:700;">Kurs haqida to'liq malumot</label>
-                    <textarea cols="30" rows="10" required placeholder="Kurs haqida to'liq malumot" class="form-control"></textarea>
+                    <textarea cols="30" rows="10" name="About" required placeholder="Kurs haqida to'liq malumot" class="form-control"></textarea>
                 </div>
                 <div class="col-12 text-center">
-                    <button class="btn btn-success mt-2">Yangi kursni qo'shish</button>
+                    <button class="btn btn-success mt-2" name="CoursPlus">Yangi kursni qo'shish</button>
                 </div>
               </form>
             </div>

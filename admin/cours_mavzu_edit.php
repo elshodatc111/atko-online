@@ -5,6 +5,9 @@
   if(!isset($_SESSION['UserID'])){
     header("location: ./login.php");
   }
+  $sql = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
+  $res = $conn->query($sql);
+  $row = $res->fetch();
 ?>
 <html lang="en">
   <head>
@@ -64,36 +67,36 @@
                 <li class="breadcrumb-item">Murs mavzusini yangilash</li>
                 <li class="breadcrumb-item "><a href="cours_eye.php">Kursni haqida</a></li>
                 <li class="breadcrumb-item "><a href="cours.php">Kurslar</a></li>
-                <li class="breadcrumb-item active"><a href="cours_new.php">Bosh sahifa</a></li>
+                <li class="breadcrumb-item active"><a href="index.php">Bosh sahifa</a></li>
             </ul>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="tile">
                     <section class="invoice">
-                        <form action="">
+                        <form action="./connect/cours/cours_mavzu_edit.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" method="POST">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h4>Kurs mavzusini yangilash</h4>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="mt-2">Mavzu nomi</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" name="Mavzu" value="<?php echo $row['MavzuName']; ?>" class="form-control" required>
                                     <label class="mt-2">Tartib raqami</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" name="MavzuNumber" value="<?php echo $row['MavzuNumber']; ?>" class="form-control" required>
                                     <label class="mt-2">Mavzu haqida</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea cols="30" name="MavzuAbout" rows="10" class="form-control"><?php echo $row['MavzuAbout']; ?></textarea>
                                 </div>
                                 <div class="col-lg-6">
-                                    <label class="mt-2">Mavzu video link</label>
-                                    <input type="text" class="form-control" required>
+                                    <label class="mt-2">Mavzu video link (<b>https://atko.tech/my_crm/video/</b>)</label>
+                                    <input type="text" name="VideoLink" value="<?php echo $row['Video']; ?>" class="form-control" required>
                                     <label class="mt-2">Video uzunligi(00:00:00)</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" name="VideoLine" value="<?php echo $row['VideoLine']; ?>" class="form-control" required>
                                     <label class="mt-2">Mavzuga oit testlar</label>
-                                    <textarea cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea cols="30" name="MavzuTest" rows="10" class="form-control"><?php echo $row['MavzuLugat']; ?></textarea>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn btn-success mt-3">Mavzuni yangilash</button>
+                                    <button class="btn btn-success mt-3" name="MavzuVideoEdit">Mavzuni yangilash</button>
                                 </div>
                             </div>
                             

@@ -104,7 +104,7 @@
                       <td class="text-center">
                           <a class="btn btn-primary" href="cours_eye.php?CoursID=<?php echo $row['CoursID']; ?>"><i class="bi bi-eye"></i></a>
                           <a class="btn btn-primary" href="cours_edit.php?CoursID=<?php echo $row['CoursID']; ?>"><i class="bi bi-pencil-square"></i></a>
-                          <a class="btn btn-primary" href="#"><i class="bi bi-trash"></i></a>
+                          <a class="btn btn-primary" href="./connect/cours/cours_del.php?CoursID=<?php echo $row['CoursID']; ?>"><i class="bi bi-trash"></i></a>
                       </td>
                     </tr>
                     <?php $i++; } ?>
