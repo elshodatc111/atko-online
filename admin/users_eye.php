@@ -47,11 +47,10 @@
               <i class="app-menu__icon bi bi-speedometer"></i><span class="app-menu__label">Kurslar</span>
             </a>
           </li>
-          <li class="treeview"><a class="app-menu__item active open" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-speedometer"></i><span class="app-menu__label">Talabalar</span><i class="treeview-indicator bi bi-chevron-right"></i></a>
-            <ul class="treeview-menu">
-              <li><a class="treeview-item" href="users.php"><i class="icon bi bi-circle-fill"></i> Ro'yhatdan o'tganlar</a></li>
-              <li><a class="treeview-item" href="users_cours.php"><i class="icon bi bi-circle-fill"></i> Sotilgan kurslar</a></li>
-            </ul>
+          <li>
+            <a class="app-menu__item active" href="users.php">
+              <i class="app-menu__icon bi bi-speedometer"></i><span class="app-menu__label">Ro'yhatdan o'tgan</span>
+            </a>
           </li>
         </ul>
     </aside>
@@ -98,7 +97,7 @@
                         <h5 class="w-100 text-center">Yangi kursga qo'shish</h5>
                         <form action="./connect/user/cours_user_plus.php?UserID=<?php echo $_GET['UserID']; ?>" method="post">
                             <div class="input-group w-100 text-center">
-                                <select class="custom-select input-group-text" style="width:35%;text-align:left" required>
+                                <select class="custom-select input-group-text" name="CoursID" style="width:35%;text-align:left" required>
                                     <option selected>Kursni tanlang</option>
                                     <?php
                                         $sql2 = "SELECT * FROM `cours` WHERE 1";
@@ -109,10 +108,10 @@
                                     ?>
                                 </select>
                                 <div class="input-group-append" style="width:35%;">
-                                    <input class=" form-control" placeholder="KUN" type="number" required/>
+                                    <input class=" form-control" name="days" placeholder="KUN" type="number" required/>
                                 </div>
                                 <div class="input-group-append" style="width:30%;">
-                                    <button class="input-group-text" for="inputGroupSelect02">Kursga qo'shish</button>
+                                    <button class="input-group-text" name="CoursPlusUser" for="inputGroupSelect02">Kursga qo'shish</button>
                                 </div>
                             </div>
                         </form>
