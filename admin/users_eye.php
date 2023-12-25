@@ -5,6 +5,9 @@
   if(!isset($_SESSION['UserID'])){
     header("location: ./login.php");
   }
+  $sql = "SELECT * FROM `user` WHERE `UserID`='".$_GET['UserID']."'";
+  $res = $conn->query($sql);
+  $row = $res->fetch();
 ?>
 <html lang="en">
   <head>
@@ -70,43 +73,87 @@
           <div class="tile">
             <div class="tile-body">
               <div class="table-responsive">
-                <table class="table table-hover table-bordered" text-center id="sampleTable">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <table class="table text-center">
+                            <thead>
+                                <th>UserID</th>
+                                <th>FIO</th>
+                                <th>Telefon Raqam</th>
+                                <th>Ro'yhatdan o'tgan</th>
+                                <th>Songi faollik</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><?php echo $row['UserID']; ?></td>
+                                    <td><?php echo $row['FIO']; ?></td>
+                                    <td><?php echo $row['Phone']; ?></td>
+                                    <td><?php echo $row['Data']; ?></td>
+                                    <td><?php echo $row['HoverData']; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="w-100 text-center">Yangi kursga qo'shish</h5>
+                        <form action="./connect/user/cours_user_plus.php?UserID=<?php echo $_GET['UserID']; ?>" method="post">
+                            <div class="input-group w-100 text-center">
+                                <select class="custom-select input-group-text" style="width:35%;text-align:left" required>
+                                    <option selected>Kursni tanlang</option>
+                                    <?php
+                                        $sql2 = "SELECT * FROM `cours` WHERE 1";
+                                        $res2 = $conn->query($sql2);
+                                        while ($row2 = $res2->fetch()) {
+                                            echo "<option value=".$row2['CoursID'].">".$row2['CoursName']."</option>";
+                                        }
+                                    ?>
+                                </select>
+                                <div class="input-group-append" style="width:35%;">
+                                    <input class=" form-control" placeholder="KUN" type="number" required/>
+                                </div>
+                                <div class="input-group-append" style="width:30%;">
+                                    <button class="input-group-text" for="inputGroupSelect02">Kursga qo'shish</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <h5 class="w-100 text-center">Sotib olgan kurslari</h5>
+                <table class="table table-hover table-bordered text-center">
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>UserID</th>
-                      <th>FIO</th>
-                      <th>Telefon raqam</th>
-                      <th>Ro'yhatdan o'tgan</th>
-                      <th>Aktiv kurslari</th>
-                      <th>Status</th>
+                      <th>CoursID</th>
+                      <th>Kurs</th>
+                      <th>Kurs narxi</th>
+                      <th>Sotib oldi</th>
+                      <th>Tugash muddati</th>
+                      <th>Kurs xolati</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      $sql1 = "SELECT * FROM `user` ORDER BY `Data` DESC";
-                      $res1 = $conn->query($sql1);
-                      $i=1;
-                      while ($row1 = $res1->fetch()) {
-                        $sql2 = "SELECT * FROM `user_cours` WHERE `UserID`='".$row1['UserID']."' AND `End`>='".date("Y-m-d")."'";
-                        $res2 = $conn->query($sql2);
-                        $count = 0;
-                        while ($row2 = $res2->fetch()) {
-                          $count = $count + 1;
+                        $sql1 = "SELECT * FROM `user_cours` JOIN `cours` ON user_cours.CoursID=cours.CoursID WHERE user_cours.UserID='".$_GET['UserID']."'";
+                        $res1 = $conn->query($sql1);
+                        $i=1;
+                        while ($row1 = $res1->fetch()) {
+                            if(date("Y-m-d")<=$row1['End']){
+                                $status = "<b class='text-success'>Aktiv</b>";
+                            }else{
+                                $status = "<b class='text-danger'>Yaknulangan</b>";
+                            }
+                            echo "<tr>
+                                <td>".$i."</td>
+                                <td>".$row1['CoursID']."</td>
+                                <td>".$row1['CoursName']."</td>
+                                <td>".$row1['CoursPrice']."</td>
+                                <td>".$row1['Start']."</td>
+                                <td>".$row1['End']."</td>
+                                <td>".$status."</td>
+                            </tr>";
+                            $i++;
                         }
                     ?>
-                    <tr>
-                      <td><?php echo $i; ?></td>
-                      <td><?php echo $row1['UserID']; ?></td>
-                      <td><?php echo $row1['FIO']; ?></td>
-                      <td><?php echo $row1['Phone']; ?></td>
-                      <td><?php echo $row1['Data']; ?></td>
-                      <td><?php echo $count; ?></td>
-                      <td class="text-center">
-                          <a class="btn btn-primary" href="users_eye.php?UserID=<?php echo $row1['UserID']; ?>"><i class="bi bi-eye"></i></a>
-                      </td>
-                    </tr>
-                    <?php $i++; } ?>
                   </tbody>
                 </table>
               </div>
