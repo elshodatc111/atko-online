@@ -108,13 +108,8 @@
 							if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
 						?>
 						
+						<button class="btn btn-danger p-3 m-0 input-btn">Sotib olish PayME</button>
 						
-						<button class="btn btn-danger p-3 m-0 input-btn">Sotib olish</button>
-						<div id="tulovpay"></div>
-						<div>
-							To'olv
-							
-						</div>
 						<?php } ?>
 					</div>
 				</div>

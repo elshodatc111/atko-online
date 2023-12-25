@@ -12,7 +12,7 @@
 		$sql1 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' AND `MavzuID`='".$_GET['MavzuID']."'";
 		$res1 = $conn->query($sql1);
 		$row1 = $res1->fetch();
-		$video = "https://atko.tech/video/".$row1['Video'];
+		$video = "video/".$row1['Video'];
 		$MavzuName = $row1['MavzuName'];
 		$MavzuAbout = $row1['MavzuAbout'];
 		#Kurs malumotlari
@@ -112,7 +112,7 @@
 				<div class="col-lg-9">
 					<div class="blog-post">
 						<video id='myvideo' controls style="width:100%;border:3px solid red;" controlsList="nodownload">
-                            <source src="<?php echo $video; ?>" type="video/mp4">
+                            <source src="video/<?php echo $row1['Video']; ?>" type="video/mp4">
                         </video>
 						<h3><?php echo $MavzuName; ?></h3>
 						<p><?php echo $MavzuAbout; ?></p>
