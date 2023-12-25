@@ -16,7 +16,7 @@
 
         $sql = "UPDATE `cours` SET `CoursName`=?,`CoursText`=?,`CoursAbout`=?,`CoursPrice`=?,`CoursMavzu`=?,`CoursTil`=?,`CoursDavomiy`=?,`CoursTecher`=?,`Muddat`=? WHERE `CoursID`=?";
         $stmt= $conn->prepare($sql);
-        $stmt->execute([$CoursName, $CoursText, $KursAbout, $CoursPrise, $MavzuCount, $KursTil, $KursDavom, $Techer, $ssss, $CoursID]);
+        $stmt->execute([$CoursName, $CoursText, $KursAbout, $CoursPrise, $MavzuCount, $KursTil, $KursDavom, $Techer, $KursMuddat, $CoursID]);
         header("location: ../../cours_eye.php?CoursID=".$CoursID."");
     }else{
         echo "Malumotlar xato kiritildi";
