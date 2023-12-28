@@ -1,6 +1,6 @@
 <?php
     include("../confige.php");
-    include("../sms/sendSms.php");
+    include("../../sms/sendSMS.php");
     if(isset($_POST['reg'])){
         $phone = str_replace(" ","",$_POST['phone']);
         $fio = str_replace("'","`",$_POST['fio']);
@@ -15,7 +15,7 @@
         }else{
             $code = rand(100000, 999999);
             $text = "Tasdiqlash kodi: ".$code;
-            sendMessge($phone,$text);
+            sendSMS("998".$phone,$text);
             setcookie("code", $code, time() + 300, '/');
             setcookie("phone", $phone, time() + 300, '/');
             setcookie("name", $fio, time() + 300, '/');
