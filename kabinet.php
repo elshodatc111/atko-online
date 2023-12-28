@@ -8,6 +8,12 @@
 		$res0 = $conn->query($sql0);
 		$row0 = $res0->fetch();
 	}
+	$sql11 = "SELECT * FROM `user_cours` WHERE `End`>'2023-12-25' AND `UserID`='".$_COOKIE['UserID']."'";
+	$res11 = $conn->query($sql11);
+	$k=0;
+	while($row11 = $res11->fetch()){
+		$k++;
+	}
 ?>
 <php lang="en">
 <head>
@@ -89,7 +95,7 @@
 							<div class="course-meta text-dark">
 								<div class="cm-info">
 									<h6>Kurslaringiz</h6>
-									<p>12</p>
+									<p><?php echo $k; ?></p>
 								</div>
 							</div>
 							<div class="course-meta text-dark">
