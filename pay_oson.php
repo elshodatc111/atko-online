@@ -93,7 +93,7 @@ if (isset($_GET['CoursID']) AND isset($_GET['oson'])){
             "user_account" => $transaction_id,
             "amount" => $course_data['CoursPrice'],
             "currency" => "UZS",
-            "comment" => "ATKO O'nlayn kurs: {$course_data['CoursName']}",
+            "comment" => "ATKO Onlayn kurs: {$course_data['CoursName']}",
             "return_url" => "https://atko.tech/pay_oson.php?tr_id=".$transaction_id,
             "lifetime" => 30,
             "lang" => "uz"
