@@ -106,11 +106,24 @@
 						<p class="btn btn-success p-3 m-0">Narxi: <?php echo $row1['CoursPrice']; ?> so'm</p>
 						<?php
 							if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
+								$sqlmm = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `CoursID`='".$_GET['CoursID']."' AND `Start`<='".date("Y-m-d")."' AND `End`>='".date("Y-m-d")."'";
+								$resmm = $conn->query($sqlmm);
+								$i=0;
+								while ($rowmm = $resmm->fetch()) {
+									$i++;
+								}
+								if($i>0){
+									$sqltt = "SELECT MIN(MavzuNumber), MavzuID FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."'";
+									$restt = $conn->query($sqltt);
+									$rowtt = $restt->fetch();
+									echo "<a href='lessin_video.php?CoursID=".$_GET['CoursID']."&MavzuID=".$rowtt['MavzuID']."' class='btn btn-danger p-3 m-0 input-btn'>Darsni boshlash</a>";
+								}else{
 						?>
-						
-						<button class="btn btn-danger p-3 m-0 input-btn">Sotib olish PayME</button>
-						
-						<?php } ?>
+							<a href='pay_oson.php?CoursID=<?php echo $_GET['CoursID']; ?>&oson=true' class="btn btn-danger p-3 m-0 input-btn">Sotib olish OSON</a>
+						<?php 
+								}
+							}
+						?>
 					</div>
 				</div>
 			</div>
