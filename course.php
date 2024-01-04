@@ -86,12 +86,6 @@
 							</div>
 							<div class="course-meta">
 								<div class="cm-info">
-									<h6>Tili</h6>
-									<p><?php echo $row1['CoursTil']; ?></p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
 									<h6>Video Darslar</h6>
 									<p><?php echo $row1['CoursDavomiy']; ?></p>
 								</div>
@@ -102,8 +96,14 @@
 									<p><?php echo $row1['Muddat']; ?> kun</p>
 								</div>
 							</div>
+							<div class="course-meta">
+								<div class="cm-info">
+									<h6>Kurs narxi:</h6>
+									<p><?php echo $row1['CoursPrice']; ?></p>
+								</div>
+							</div>
 						</div>
-						<p class="btn btn-success p-3 m-0">Narxi: <?php echo $row1['CoursPrice']; ?> so'm</p>
+						
 						<?php
 							if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
 								$sqlmm = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `CoursID`='".$_GET['CoursID']."' AND `Start`<='".date("Y-m-d")."' AND `End`>='".date("Y-m-d")."'";
@@ -119,7 +119,10 @@
 									echo "<a href='lessin_video.php?CoursID=".$_GET['CoursID']."&MavzuID=".$rowtt['MavzuID']."' class='btn btn-danger p-3 m-0 input-btn'>Darsni boshlash</a>";
 								}else{
 						?>
-							<a href='pay_oson.php?CoursID=<?php echo $_GET['CoursID']; ?>&oson=true' class="btn btn-danger p-3 m-0 input-btn">Sotib olish OSON</a>
+						    <p class="btn btn-outline-danger p-3 m-0">Sotib olish: </p>
+							<a href='pay_oson.php?CoursID=<?php echo $_GET['CoursID']; ?>&oson=true' class="btn btn-outline-success p-2 m-0 input-btn">
+							    <img src='pay/color.svg' style="width:100px;"/>
+							</a>
 						<?php 
 								}
 							}

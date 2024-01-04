@@ -1,8 +1,8 @@
 <?php
 
 include("./config/confige.php");
-$token = "#############";
-$merchant_id = "####;";
+$token = "QZqIMDOm1ax66g5OIdg19ztSnMRZ2jDI8TgKmUWdUk9Qp3uX";
+$merchant_id = 1474;
 
 if (!isset($_POST['transaction_id'])){
     $inputData = file_get_contents("php://input");
@@ -47,6 +47,11 @@ function update_transaction($id, $status){
         $response = $conn->query("SELECT * FROM `transactions` WHERE `TransactionID` = {$id};");
         $transaction = $response->fetch(PDO::FETCH_ASSOC);
         if ($transaction['Status'] == 2){
+            $user_course = $conn->query("SELECT * FROM `user_cours` WHERE `CoursID` = {$transaction['CourseID']} AND `UserID` = {$transaction['UserID']};");
+            $user_course_response  = $user_course->fetch(PDO::FETCH_ASSOC);
+            if (isset($user_course_response['id']))
+                return false;
+
             $course = $conn->query("SELECT * FROM `cours` WHERE `CoursID` = {$transaction['CourseID']};");
             $course_response  = $course->fetch(PDO::FETCH_ASSOC);
 
