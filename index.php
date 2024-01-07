@@ -116,9 +116,9 @@
 					<div class="col-lg-6 offset-lg-6 pl-0">
 						<div class="course-info">
 							<div class="course-text">
-								<h5>HTNL5 & CSS For Begginers</h5>
-								<p>Lorem ipsum dolor sit amet, quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna</p>
-								<a href="./course.php?CoursID=1703532382" class="btn" style="color:#D82A4E;font-weight:700">Batafsil...</a>
+								<h5>Hangi uchun joy</h5>
+								<p><b>Hangi haqida 144 belgi</b>Lorem ipsum dolor sit amet, quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna</p>
+								<a href="./course.php?CoursID=1703532382" style="font-weight:700;color:red;border-radius:0;" class="mt-3 btn btn-outline-primary w-50">Batafsil...</a>
 							</div>
 						</div>
 					</div>
@@ -128,7 +128,7 @@
 	</div>
 
 
-	<section class="categories-section spad pt-0 mt-0">
+	<section class="categories-section spad py-2 my-2 mb-3">
 		<div class="container pt-0">
 			<div class="section-title m-0">
 				<h3 class="m-0">EPS-TOPIK 50</h3>
@@ -150,6 +150,38 @@
 								<span class="row my-1">
 									<div class="col-6">Narxi: </div>
 									<div class="col-6" style="text-align:right;"><?php echo $row1['CoursPrice']; ?> so'm</div>
+								</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+	</section>
+
+	<section class="categories-section spad pt-0 mt-0">
+		<div class="container pt-0">
+			<div class="section-title m-0">
+				<h3 class="m-0">EPS-TOPIK 60</h3>
+				<p class="mb-3">Ish imtixoni uchun standart darslik(2-nashr)</p>
+			</div>
+			<div class="row">
+				<?php
+					$sql11 = "SELECT * FROM `cours` ORDER BY `id` ASC LIMIT 4, 4";
+					$res11 = $conn->query($sql11);
+					while ($row11 = $res11->fetch()) {
+				?>
+				<div class="col-lg-3 col-md-6">
+					<div class="categorie-item">
+						<a href="./course.php?CoursID=<?php echo $row11['CoursID']; ?>">
+							<div class="ci-thumb set-bg" data-setbg="img/kurs/<?php echo $row11['CoursImage']; ?>"></div>
+							<div class="ci-text p-3">
+								<h5 class="my-1 w-100 text-center"><?php echo $row11['CoursName']; ?></h5>
+								<p class="text-center m-0"><?php echo $row11['CoursText']; ?></p>
+								<span class="row my-1">
+									<div class="col-6">Narxi: </div>
+									<div class="col-6" style="text-align:right;"><?php echo $row11['CoursPrice']; ?> so'm</div>
 								</span>
 							</div>
 						</a>
