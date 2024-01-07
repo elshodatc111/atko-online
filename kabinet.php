@@ -29,6 +29,17 @@
     <div id="preloder">
 		<div class="loader"></div>
 	</div>
+	<div class="container-fluid" style="background-color:red">
+		<div class="container" style="text-align:right">
+			<div class="social-links py-2" style="font-size:8px;">
+				<a href="https://t.me/atko_teams" style="float:left;font-size:16px;color:white"><i class="fa fa-phone" style="font-size:16px;margin-left:10px;color:white;"></i> +998 91 950 1101</a>
+				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
+				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
+				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
+			</div>
+		</div>
+	</div>
 	<header class="header-section">
 		<div class="container">
 			<div class="row">
@@ -46,7 +57,6 @@
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
 							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>
-							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="reg.php">Ro'yhatdan o'tish</a></li>
 							<li style="display:<?php if(!isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>

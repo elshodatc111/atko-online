@@ -22,6 +22,16 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
+	<div class="container-fluid" style="background-color:red">
+		<div class="container" style="text-align:right">
+			<div class="social-links py-2" style="font-size:8px;">
+				<a href="https://t.me/atko_teams" style="float:left;font-size:16px;color:white"><i class="fa fa-phone" style="font-size:16px;margin-left:10px;color:white;"></i> +998 91 950 1101</a>
+				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
+				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
+				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
+			</div>
+		</div>
+	</div>
 	<header class="header-section">
 		<div class="container">
 			<div class="row">
@@ -39,7 +49,6 @@
 							<li><a href="courses.php">Kurslar</a></li>
 							<li><a href="contact.php">Bog'lanish</a></li>
 							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="login.php">Kirish</a></li>
-							<li style="display:<?php if(isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="reg.php">Ro'yhatdan o'tish</a></li>
 							<li style="display:<?php if(!isset($_COOKIE['UserID'])){echo 'none;';} ?>"><a href="kabinet.php">Kabinet</a></li>
 						</ul>
 					</nav>
@@ -49,21 +58,27 @@
 	</header>
 	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
 		<div class="container">
-			<div class="hero-text text-white">
-				<h2>ATKO o'quv markazi</h2>
-				<p>Yurtimizning eng yetakchi o‘qituvchilari tomonidan tayyorlangan videodarslarni tomosha qilib, siz nafaqat ishonchli <br>o‘qituvchi qidirishdan holi bo‘lasiz, balki noyob metodika orqali darslarni qiziq va oson<br> yo‘llar bilan o‘zlashtirishingiz mumkin.</p>
+			<div class="hero-text">
+				<h2 style="color:red;font-weight:800">ATKO koreys tili markazi</h2>
+				<p style="color:#fff;">
+					Yurtimizning eng yetakchi o‘qituvchilari tomonidan tayyorlangan <br/>
+					videodarslarni tomosha qilib, siz nafaqat ishonchli o‘qituvchi <br/> 
+					qidirishdan holi bo‘lasiz, balki noyob metodika orqali darslarni qiziq va <br/>
+					oson yo‘llar bilan o‘zlashtirishingiz mumkin.
+				</p>
+				<a href="./reg.php" style="font-weight:700;color:white;border-radius:0;" class="btn btn-outline-primary">RO'YXATDAN O'TISH</a>
 			</div>
 		</div>
 	</section>
 	<section class="categories-section spad">
 		<div class="container pt-0">
 			<div class="section-title m-0">
-				<h2 class="m-0">Yangi kurslar</h2>
-				<p class="m-0">Eng yangi qo'shilgan video kurslar.</p>
+				<h3 class="m-0">Yangi kurslar</h3>
+				<p class="mb-3">Eng yangi qo'shilgan video kurslar.</p>
 			</div>
 			<div class="row">
 				<?php
-					$sql1 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 6";
+					$sql1 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 3";
 					$res1 = $conn->query($sql1);
 					while ($row1 = $res1->fetch()) {
 				?>
@@ -71,10 +86,13 @@
 					<div class="categorie-item">
 						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>">
 							<div class="ci-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>"></div>
-							<div class="ci-text">
-								<h5><?php echo $row1['CoursName']; ?></h5>
-								<p><?php echo $row1['CoursText']; ?></p>
-								<span>Narxi: <?php echo $row1['CoursPrice']; ?> so'm</span>
+							<div class="ci-text p-3">
+								<h5 class="my-1 w-100 text-center"><?php echo $row1['CoursName']; ?></h5>
+								<p class="text-center m-0"><?php echo $row1['CoursText']; ?></p>
+								<span class="row my-1">
+									<div class="col-6">Narxi: </div>
+									<div class="col-6" style="text-align:right;"><?php echo $row1['CoursPrice']; ?> so'm</div>
+								</span>
 							</div>
 						</a>
 					</div>
@@ -84,24 +102,55 @@
 		</div>
 	</section>
 	
-	<section class="realated-courses spad">
-		<div class="course-warp">
-			<h2 class="rc-title">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
+	<section class="categories-section spad pt-0 mt-0">
+		<div class="container pt-0">
+			<div class="section-title m-0">
+				<h3 class="m-0">EPS-TOPIK 50</h3>
+				<p class="mb-3">Koreya ish imtixoni uchun standart darslik!</p>
+			</div>
+			<div class="row">
+				<?php
+					$sql1 = "SELECT * FROM `cours` ORDER BY `id` ASC LIMIT 4";
+					$res1 = $conn->query($sql1);
+					while ($row1 = $res1->fetch()) {
+				?>
+				<div class="col-lg-3 col-md-6">
+					<div class="categorie-item">
+						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>">
+							<div class="ci-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>"></div>
+							<div class="ci-text p-3">
+								<h5 class="my-1 w-100 text-center"><?php echo $row1['CoursName']; ?></h5>
+								<p class="text-center m-0"><?php echo $row1['CoursText']; ?></p>
+								<span class="row my-1">
+									<div class="col-6">Narxi: </div>
+									<div class="col-6" style="text-align:right;"><?php echo $row1['CoursPrice']; ?> so'm</div>
+								</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+	</section>
+	
+	<section class="realated-courses spad pt-3 pb-0">
+		<div class="course-warp m-0 p-0">
+			<h2 class="rc-title p-0 my-3 text-center">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
 			<div class="rc-slider owl-carousel">
 				<?php
-					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 4";
+					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 5";
 					$res44 = $conn->query($sql44);
 					while ($row44 = $res44->fetch()) {
 				?>
 				<div class="course-item">
 					<a href="./course.php?CoursID=<?php echo $row44['CoursID']; ?>">
-						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" >
-							<div class="price">Narxi: <?php echo $row44['CoursText']; ?> so'm</div>
+						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" class="w-100">
+							<div class="price">Narxi: <?php echo $row44['CoursPrice']; ?> so'm</div>
 						</div>
 						<div class="course-info">
-							<div class="course-text">
-								<h5><?php echo $row44['CoursName']; ?></h5>
-								<p><?php echo $row44['CoursPrice']; ?></p>
+							<div class="course-text p-3">
+								<h5 class="p-0 m-0"><?php echo $row44['CoursName']; ?></h5>
 							</div>
 						</div>
 					</a>
@@ -119,7 +168,7 @@
 					<li><a href="contact.php">Bog'lanish</a></li>
 				</ul>
 				<div class="copyright">
-					ATKO o'quv markazi 
+					ATKO koreys tili markazi 
 					&copy;<script>document.write(new Date().getFullYear());</script> 
 					<i class="fa fa-heart-o" aria-hidden="true"></i>
 				</div>
