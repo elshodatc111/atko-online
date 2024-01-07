@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
 					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>
@@ -60,13 +60,17 @@
 		<div class="container">
 			<div class="hero-text">
 				<h2 style="color:red;font-weight:800">ATKO koreys tili markazi</h2>
-				<p style="color:#fff;">
+				<h5 style="color:#fff;">
 					Yurtimizning eng yetakchi o‘qituvchilari tomonidan tayyorlangan <br/>
 					videodarslarni tomosha qilib, siz nafaqat ishonchli o‘qituvchi <br/> 
 					qidirishdan holi bo‘lasiz, balki noyob metodika orqali darslarni qiziq va <br/>
 					oson yo‘llar bilan o‘zlashtirishingiz mumkin.
-				</p>
-				<a href="./reg.php" style="font-weight:700;color:white;border-radius:0;" class="btn btn-outline-primary">RO'YXATDAN O'TISH</a>
+				</h5>
+				<?php
+					if(!isset($_COOKIE['UserID'])){
+				?>
+				<a href="./reg.php" style="font-weight:700;color:red;border-radius:0;" class="mt-3 btn btn-outline-primary">RO'YXATDAN O'TISH</a>
+				<?php } ?>
 			</div>
 		</div>
 	</section>

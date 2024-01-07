@@ -36,7 +36,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -44,8 +43,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
-					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+					<div class="site-logo pt-2">
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
 					<div class="nav-switch">
 						<i class="fa fa-bars"></i>

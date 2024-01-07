@@ -40,7 +40,7 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
 					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>

@@ -36,7 +36,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -45,9 +44,9 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
-					<div class="nav-switch">
+					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
@@ -73,115 +72,125 @@
 			</div>
 		</div>
 	</div>
-	
-	<section class="single-course spad pb-0">
-		<div class="container">
-			<div class="course-meta-area">
+
+	<div class="container mt-4 px-2">
+		<div class="featured-courses mt-0 p-0">
+			<div class="featured-course course-item">
+				<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>">
+					<div class="price">Narxi: <?php echo $row1['CoursPrice']; ?> so'm</div>
+				</div>
 				<div class="row">
-					<div class="col-lg-10 offset-lg-1">
-						<h3><?php echo $row1['CoursName']; ?></h3>
-						<div class="course-metas">
-							<div class="course-meta">
-								<div class="course-author">
-									<div class="ca-pic set-bg" data-setbg="img/techer/<?php echo $row1['CoursImage']; ?>"></div>
-									<h6>O'qituvchi</h6>
-									<p><?php echo $row1['CoursTecher']; ?></p>
+					<div class="col-lg-6 offset-lg-6 pl-0">
+						<div class="course-info">
+							<div class="course-text">
+								<h5><?php echo $row1['CoursName']; ?></h5>
+								<div class="row">
+									<div class="col-2" style="float:right">
+										<img src="img/techer/<?php echo $row1['TecherImage']; ?>" style="width:45px;border-radius:50%;float:right">
+									</div>
+									<div class="col-4" style="float:left">
+										<div class="cm-info">
+											<h6 style="float:left;width:100%">O'qituvchi</h6>
+											<p style="float:left;width:100%"><?php echo $row1['CoursTecher']; ?></p>
+										</div>
+									</div>
+									<div class="col-6"></div>
+									<div class="col-4">
+										<div class="cm-info">
+											<h6>Mavzular</h6>
+											<p><?php echo $row1['CoursMavzu']; ?></p>
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="cm-info">
+											<h6>Video Darslar</h6>
+											<p><?php echo $row1['CoursDavomiy']; ?></p>
+										</div>
+									</div>
+									<div class="col-4">
+										<div class="cm-info">
+											<h6>Davomiyligi</h6>
+											<p><?php echo $row1['Muddat']; ?> kun</p>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Mavzular</h6>
-									<p><?php echo $row1['CoursMavzu']; ?></p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Video Darslar</h6>
-									<p><?php echo $row1['CoursDavomiy']; ?></p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Davomiyligi</h6>
-									<p><?php echo $row1['Muddat']; ?> kun</p>
-								</div>
-							</div>
-							<div class="course-meta">
-								<div class="cm-info">
-									<h6>Kurs narxi:</h6>
-									<p><?php echo $row1['CoursPrice']; ?></p>
-								</div>
+								<p><?php echo $row1['CoursText']; ?></p>
+								<?php
+									if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
+										$sqlmm = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `CoursID`='".$_GET['CoursID']."' AND `Start`<='".date("Y-m-d")."' AND `End`>='".date("Y-m-d")."'";
+										$resmm = $conn->query($sqlmm);
+										$i=0;
+										while ($rowmm = $resmm->fetch()) {
+											$i++;
+										}
+										if($i>0){
+											$sqltt = "SELECT MIN(MavzuNumber), MavzuID FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."'";
+											$restt = $conn->query($sqltt);
+											$rowtt = $restt->fetch();
+											echo "<a href='lessin_video.php?CoursID=".$_GET['CoursID']."&MavzuID=".$rowtt['MavzuID']."' class='btn btn-danger p-3 m-0 input-btn'>Darsni boshlash</a>";
+										}else{
+								?>
+									<a href='pay_oson.php?CoursID=<?php echo $_GET['CoursID']; ?>&oson=true' class="btn btn-outline-success p-2 m-0 px-4 input-btn" style="border-radius:0;font-weight:700">
+										Sotib olish
+									</a>
+								<?php }} ?>
 							</div>
 						</div>
-						
-						<?php
-							if(!isset($_COOKIE['UserID'])){echo "<a href='login.php' class='btn btn-danger p-3 m-0'>Sotib olish</a>";}else{
-								$sqlmm = "SELECT * FROM `user_cours` WHERE `UserID`='".$_COOKIE['UserID']."' AND `CoursID`='".$_GET['CoursID']."' AND `Start`<='".date("Y-m-d")."' AND `End`>='".date("Y-m-d")."'";
-								$resmm = $conn->query($sqlmm);
-								$i=0;
-								while ($rowmm = $resmm->fetch()) {
-									$i++;
-								}
-								if($i>0){
-									$sqltt = "SELECT MIN(MavzuNumber), MavzuID FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."'";
-									$restt = $conn->query($sqltt);
-									$rowtt = $restt->fetch();
-									echo "<a href='lessin_video.php?CoursID=".$_GET['CoursID']."&MavzuID=".$rowtt['MavzuID']."' class='btn btn-danger p-3 m-0 input-btn'>Darsni boshlash</a>";
-								}else{
-						?>
-						    <p class="btn btn-outline-danger p-3 m-0">Sotib olish: </p>
-							<a href='pay_oson.php?CoursID=<?php echo $_GET['CoursID']; ?>&oson=true' class="btn btn-outline-success p-2 m-0 input-btn">
-							    <img src='pay/color.svg' style="width:100px;"/>
-							</a>
-						<?php 
-								}
-							}
-						?>
-					</div>
-				</div>
-			</div>
-			<img src="img/kurs/<?php echo $row1['CoursImage']; ?>" style='border:1px solid red;' class="course-preview">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1 course-list">
-					<div class="cl-item">
-						<h4>Kurs haqida</h4>
-						<p><?php echo $row1['CoursAbout']; ?></p>
-					</div>
-					<div class="cl-item">
-						<h4>Kurs mavzulari</h4>
-						<ul>
-							<?php
-								$sql3 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `MavzuNumber` ASC";
-								$res3 = $conn->query($sql3);
-								while ($row3=$res3->fetch()) {
-							?>
-							<li><p><?php echo $row3['MavzuName']; ?></p></li>
-							<?php } ?>
-						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	
-	<section class="realated-courses spad">
-		<div class="course-warp">
-			<h2 class="rc-title">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
+	</div>
+	<div class="container">
+		<div class="row px-2" >
+			<section class="single-course spad pb-0 m-0 p-0 col-lg-8">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1 course-list">
+						<div class="cl-item">
+							<h4 class="m-0 my-2">Kurs haqida</h4>
+							<p><?php echo $row1['CoursAbout']; ?></p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="single-course spad pb-0 m-0 p-0 col-lg-4">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1 course-list">
+						<div class="cl-item">
+							<h4 class="m-0 my-2">Kurs mavzulari</h4>
+							<ul>
+								<?php
+									$sql3 = "SELECT * FROM `coues_mavzu` WHERE `CoursID`='".$_GET['CoursID']."' ORDER BY `MavzuNumber` ASC";
+									$res3 = $conn->query($sql3);
+									while ($row3=$res3->fetch()) {
+								?>
+								<li><p><?php echo $row3['MavzuName']; ?></p></li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<section class="realated-courses spad pt-3 pb-0">
+		<div class="course-warp m-0 p-0">
+			<h2 class="rc-title p-0 my-3 text-center">Sizga yoqishi mumkin bo'lgan aloqador kurslar</h2>
 			<div class="rc-slider owl-carousel">
 				<?php
-					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 4";
+					$sql44 = "SELECT * FROM `cours` ORDER BY RAND() LIMIT 5";
 					$res44 = $conn->query($sql44);
 					while ($row44 = $res44->fetch()) {
 				?>
 				<div class="course-item">
 					<a href="./course.php?CoursID=<?php echo $row44['CoursID']; ?>">
-						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" >
-							<div class="price">Narxi: <?php echo $row44['CoursText']; ?> so'm</div>
+						<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row44['CoursImage']; ?>" class="w-100">
+							<div class="price">Narxi: <?php echo $row44['CoursPrice']; ?> so'm</div>
 						</div>
 						<div class="course-info">
-							<div class="course-text">
-								<h5><?php echo $row44['CoursName']; ?></h5>
-								<p><?php echo $row44['CoursPrice']; ?></p>
+							<div class="course-text p-3">
+								<h5 class="p-0 m-0"><?php echo $row44['CoursName']; ?></h5>
 							</div>
 						</div>
 					</a>
@@ -190,7 +199,6 @@
 			</div>
 		</div>
 	</section>
-
 	
     <footer class="footer-section spad p-0 mt-5">
 		<div class="footer-bottom">
@@ -207,6 +215,7 @@
 			</div>
 		</div>
 	</footer> 
+
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/mixitup.min.js"></script>

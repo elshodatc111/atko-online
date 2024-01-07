@@ -29,7 +29,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -38,9 +37,9 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
-					<div class="nav-switch">
+					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
@@ -68,11 +67,11 @@
 		</div>
 	</div>
 	
-	<section class="course-section spad pb-0">
+	<section class="course-section spad py-3">
 		<div class="course-warp">
-			<div class="section-title">
-				<h2>Online kurslar</h2>
-				<p>Eng yangi qo'shilgan video kurslar.</p>
+			<div class="section-title my-2">
+				<h2 class="p-0 m-0">Online kurslar</h2>
+				<p class="p-0 m-0">Eng yangi qo'shilgan video kurslar.</p>
 			</div>                         
 			<div class="row course-items-area">
 				<?php
@@ -80,17 +79,17 @@
 					$res1 = $conn->query($sql1);
 					while ($row1 = $res1->fetch()) {
 				?>
-				<div class="mix col-lg-4 finance">
-					<div class="course-item">
-						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>" >
-							<div class="course-thumb set-bg" style='border:1px solid red;' data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>">
-								<div class="price">Narxi: <?php echo $row1['CoursPrice']; ?></div>
-							</div>
-							<div class="course-info">
-								<div class="course-text">
-									<h5><?php echo $row1['CoursName']; ?></h5>
-									<p><?php echo $row1['CoursText']; ?></p>
-								</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="categorie-item">
+						<a href="./course.php?CoursID=<?php echo $row1['CoursID']; ?>">
+							<div class="ci-thumb set-bg" data-setbg="img/kurs/<?php echo $row1['CoursImage']; ?>"></div>
+							<div class="ci-text p-3">
+								<h5 class="my-1 w-100 text-center"><?php echo $row1['CoursName']; ?></h5>
+								<p class="text-center m-0"><?php echo $row1['CoursText']; ?></p>
+								<span class="row my-1">
+									<div class="col-6">Narxi: </div>
+									<div class="col-6" style="text-align:right;"><?php echo $row1['CoursPrice']; ?> so'm</div>
+								</span>
 							</div>
 						</a>
 					</div>

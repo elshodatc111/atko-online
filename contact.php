@@ -29,7 +29,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -38,9 +37,9 @@
 			<div class="row">
 				<div class="col-lg-3 col-md-3">
 					<div class="site-logo">
-						<a href="index.php"><img src="img/logo.png" alt=""></a>
+						<a href="index.php"><img src="img/logo2.png" alt=""></a>
 					</div>
-					<div class="nav-switch">
+					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
@@ -103,7 +102,6 @@
 							<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:24px;"></i></a>
 							<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:24px;"></i></a>
 							<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:24px;"><i class="fa fa-instagram"></i></a>
-							<a href="#"><i class="fa fa-youtube" style="font-size:24px;"></i></a>
 						</div>
 					</div>
 				</div>
@@ -114,13 +112,12 @@
 		</div>
 	</section>
 	
-	<footer class="footer-section spad p-0">
+    <footer class="footer-section spad p-0 mt-5">
 		<div class="footer-bottom">
 			<div class="footer-warp">
 				<ul class="footer-menu">
-					<li><a href="#">Online kurslar</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Bog'lanish</a></li>
+					<li><a href="courses.php">Online kurslar</a></li>
+					<li><a href="contact.php">Bog'lanish</a></li>
 				</ul>
 				<div class="copyright">
 					ATKO o'quv markazi 
