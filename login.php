@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 </head>
+
 <body>
 	<div id="preloder">
 		<div class="loader"></div>
@@ -32,7 +33,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -71,31 +71,28 @@
 		</div>
 	</div>
     
-	<section class="search-section ss-other-page">
-		<div class="container">
-			<div class="search-warp" style="background-color:cornsilk">
-				<div class="section-title text-white">
-					<h2><span>Kirish</span></h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 offset-lg-3">
-                        <h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan.</h4>
-						<form action="./config/login/login.php" method="POST" class="course-search-form text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
-                            <h4 class="text-dark">Telefon raqam</h3>
-							<input type="text" class="form-control w-100 my-2 phone" name="phone" placeholder="XX XXX XXXX" required>
-							<button class="site-btn btn-dark" name="login">Kirish</button><br><br>
-                            <a href="reg.php" class="text-primary pt-3" style="font-weight:700">Ro'yhatdan o'tish</a>
-						</form>
-                        <form action="./config/login/login_code.php" method="POST" class="course-search-form text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
-                            <h4 class="text-dark">Raqamni tasdiqlang</h3>
-							<input type="text" class="form-control w-100 my-2" name='code' placeholder="X-X-X-X-X-X" required>
-							<button class="site-btn btn-dark" type='submit' name='checkcode'>Tasdiqlash</button>
-						</form>
-					</div>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="my-5 py-5 px-4" style="background-color:#EDF4F6">
+					<h2 style="color:#5F615F;" class="mb-3"><span>Kirish</span></h2>
+					<h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan. Oldin ro'yhatdan o'ting.</h4>
+					<form action="./config/login/login.php" method="POST" class="text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
+						<h4 class="text-dark">Telefon raqam</h3>
+						<input type="text" class="form-control my-2 phone" name="phone" placeholder="XX XXX XXXX" required>
+						<button class="btn btn-outline-danger px-5 w-100" style="font-weight:700;border-radius:0;" name="login">KIRISH</button><br><br>
+						<a href="reg.php" class="text-primary pt-3" style="font-weight:700">Ro'yxatdan o'tish</a>
+					</form>
+					<form action="./config/login/login_code.php" method="POST" class="text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
+						<h4 class="text-dark">Raqamni tasdiqlang</h3>
+						<input type="text" class="form-control my-2" name='code' placeholder="X-X-X-X-X-X" required>
+						<button class="btn btn-outline-danger px-5 w-100" type='submit' style="font-weight:700;border-radius:0;" name='checkcode'>Tasdiqlash</button>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
     <footer class="footer-section spad p-0 mt-5">
 		<div class="footer-bottom">

@@ -7,7 +7,7 @@
 ?>
 <php lang="en">
 <head>
-	<title>Kirish</title>
+	<title>Ro'yxatdan o'tish</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="ATKO o'quv markazi">
 	<meta name="keywords" content="">
@@ -32,7 +32,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -66,38 +65,35 @@
 			<div class="site-breadcrumb">
 				<h2 class="text-white">Ro'yhatdan o'tish</h2>
 				<a href="index.php">Bosh sahifa</a>
-				<span>Ro'yhatdan o'tish</span>
+				<span>Ro'yxatdan o'tish</span>
 			</div>
 		</div>
 	</div>
     
-	<section class="search-section ss-other-page">
-		<div class="container">
-			<div class="search-warp" style="background-color:cornsilk">
-				<div class="section-title text-white">
-					<h2><span>Ro'yhatdan o'tish</span></h2>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 offset-lg-3">
-                        <h4 class="text-danger w-100 text-center" style="display:<?php if(!isset($_GET['err'])){echo 'none;';} ?>">Tasdiqlash kodi noto'g'ri.</h4>
-						<form action="./config/login/reg.php" method="POST" class="course-search-form text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
-                            <h4 class="text-dark">Ismingiz</h3>
-							<input type="text" class="form-control w-100 my-2" name="fio" placeholder="Ismingiz" required>
-                            <h4 class="text-dark">Telefon raqam</h3>
-							<input type="text" class="form-control w-100 my-2 phone" name="phone" placeholder="XX XXX XXXX" required>
-							<button class="site-btn btn-dark" name="reg">Ro'yhatdan o'tish</button><br><br>
-                            <a href="login.php" class="text-primary pt-3" style="font-weight:700">Kirish</a>
-						</form>
-                        <form action="./config/login/reg_code.php" method="POST" class="course-search-form text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
-                            <h4 class="text-dark">Raqamni tasdiqlang</h3>
-							<input type="text" class="form-control w-100 my-2 kodes" name="codes" placeholder="X-X-X-X-X-X" required>
-							<button class="site-btn btn-dark" name="regcode">Tasdiqlash</button>
-						</form>
-					</div>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="my-5 py-5 px-4" style="background-color:#EDF4F6">
+					<h2 style="color:#5F615F;" class="mb-3"><span>Ro'yxatdan o'tish</span></h2>
+					<h4 class="text-danger w-100 text-center" style="display:<?php if(!isset($_GET['err'])){echo 'none;';} ?>">Tasdiqlash kodi noto'g'ri.</h4>
+					<form action="./config/login/reg.php" method="POST" class="text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
+						<h4 class="text-dark">Ismingiz</h3>
+						<input type="text" class="form-control w-100 my-2" name="fio" placeholder="Ismingiz" required>
+						<h4 class="text-dark">Telefon raqam</h3>
+						<input type="text" class="form-control w-100 my-2 phone" name="phone" placeholder="XX XXX XXXX" required>
+						<button class="btn btn-outline-danger px-5 w-100" style="font-weight:700;border-radius:0;" name="reg">Ro'yhatdan o'tish</button><br><br>
+						<a href="login.php" class="text-primary pt-3" style="font-weight:700">Kirish</a>
+					</form>
+					<form action="./config/login/reg_code.php" method="POST" class="text-center" style="display:<?php if(!isset($_COOKIE['code'])){echo 'none;';} ?>">
+						<h4 class="text-dark">Raqamni tasdiqlang</h3>
+						<input type="text" class="form-control w-100 my-2 kodes" name="codes" placeholder="X-X-X-X-X-X" required>
+						<button class="btn btn-outline-danger px-5 w-100" style="font-weight:700;border-radius:0;" name="regcode">Tasdiqlash</button>
+					</form>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
     <footer class="footer-section spad p-0 mt-5">
 		<div class="footer-bottom">
