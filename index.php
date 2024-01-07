@@ -70,8 +70,8 @@
 			</div>
 		</div>
 	</section>
-	<section class="categories-section spad">
-		<div class="container pt-0">
+	<section class="categories-section spad mb-0 pb-0">
+		<div class="container pt-0 pb-0 mb-0">
 			<div class="section-title m-0">
 				<h3 class="m-0">Yangi kurslar</h3>
 				<p class="mb-3">Eng yangi qo'shilgan video kurslar.</p>
@@ -102,6 +102,28 @@
 		</div>
 	</section>
 	
+	<div class="container">
+		<div class="featured-courses mt-0 p-0">
+			<div class="featured-course course-item">
+				<div class="course-thumb set-bg" data-setbg="img/kurs/01.jpg">
+					<div class="price">Narxi: 150 000 so'm</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 offset-lg-6 pl-0">
+						<div class="course-info">
+							<div class="course-text">
+								<h5>HTNL5 & CSS For Begginers</h5>
+								<p>Lorem ipsum dolor sit amet, quis ligula in, eleifend rhoncus ipsum. Donec ultrices, sem vel efficitur molestie, massa nisl posuere ipsum, ut vulputate mauris ligula a metus. Aenean vel congue diam, sed bibendum ipsum. Nunc vulputate aliquet tristique. Integer et pellentesque urna</p>
+								<a href="./course.php?CoursID=1703532382" class="btn" style="color:#D82A4E;font-weight:700">Batafsil...</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<section class="categories-section spad pt-0 mt-0">
 		<div class="container pt-0">
 			<div class="section-title m-0">
@@ -133,6 +155,7 @@
 			</div>
 		</div>
 	</section>
+
 	
 	<section class="realated-courses spad pt-3 pb-0">
 		<div class="course-warp m-0 p-0">
