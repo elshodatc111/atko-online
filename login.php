@@ -43,7 +43,7 @@
 					<div class="site-logo">
 						<a href="index.php"><img src="img/logo.png" alt=""></a>
 					</div>
-					<div class="nav-switch">
+					<div class="nav-switch pt-2">
 						<i class="fa fa-bars"></i>
 					</div>
 				</div>
