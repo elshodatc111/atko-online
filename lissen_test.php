@@ -126,7 +126,7 @@
 		</div>
 	</section>
 
-	<section class="blog-page spad pb-0">
+	<section class="blog-page spad pb-0 mt-0 pt-4">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9">
@@ -186,10 +186,10 @@
 
 					<div class="row">
 						<div class="col-6">
-							<a href="lessin_video.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzu videosi</a>
+							<a href="lessin_video.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzu videosi</a>
 						</div>
 						<div class="col-6">
-							<a href="lessin_lugat.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid lug'atlar</a>
+							<a href="lessin_lugat.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzuga oid lug'atlar</a>
 						</div>
 					</div>
 				</div>

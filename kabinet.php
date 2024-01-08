@@ -73,7 +73,12 @@
 			</div>
 		</div>
 	</div>
-    
+    <?php
+		$sql1 = "SELECT * FROM `user_cours` WHERE `End`>='".date("Y-m-d")."' AND `UserID`='".$_COOKIE['UserID']."'";
+		$res111 = $conn->query($sql1);
+		$count = 0;
+		while ($row1 = $res111->fetch()) {$count = $count + 1;}
+	?>
 	<section class="search-section ss-other-page">
 		<div class="container">
 			<div class="search-warp" style="background-color: antiquewhite;">
@@ -81,31 +86,23 @@
 					<h2><span>Shaxsiy kabinet</span></h2>
 				</div>
 				<div class="row">
-					<div class="col-lg-10 offset-lg-1">
-						<div class="course-metas">
-							<div class="course-meta">
-								<div class="course-author text-dark">
-									<h6>Ismingiz:</h6>
-									<p><?php echo $row0['FIO']; ?></p>
-								</div>
+					<div class="col-lg-10 offset-lg-1 p-0">
+						<div class="row text-center">
+							<div class="col-lg-3 col-6">
+								<h5>Ismingiz:</h5>
+								<p><?php echo $row0['FIO']; ?></p>
 							</div>
-							<div class="course-meta text-dark">
-								<div class="cm-info">
-									<h6>Telefon:</h6>
-									<p><?php echo $row0['Phone']; ?></p>
-								</div>
+							<div class="col-lg-3 col-6">
+								<h5>Telefon:</h5>
+								<p><?php echo $row0['Phone']; ?></p>
 							</div>
-							<div class="course-meta text-dark">
-								<div class="cm-info">
-									<h6>Kurslaringiz</h6>
-									<p>12</p>
-								</div>
+							<div class="col-lg-3 col-6">
+								<h5>Kurslaringiz</h5>
+								<p><?php echo $count; ?></p>
 							</div>
-							<div class="course-meta text-dark">
-								<div class="cm-info">
-									<h6>Oxirgi tashrif</h6>
-									<p><?php echo $row0['HoverData']; ?></p>
-								</div>
+							<div class="col-lg-3 col-6">
+								<h5>Oxirgi tashrif</h5>
+								<p><?php echo $row0['HoverData']; ?></p>
 							</div>
 						</div>
 					</div>
@@ -130,12 +127,12 @@
 			<div class="mix col-lg-4 finance">
 				<div class="course-item">
 					<div class="course-thumb set-bg" data-setbg="img/kurs/<?php echo $row2['CoursImage']; ?>">
-						<div class="price">Tugash muddati: <?php echo $row2['CoursPrice']; ?></div>
+						<div class="price">Tugash muddati: <?php echo $row1['End']; ?></div>
 					</div>
 					<div class="course-info">
 						<div class="course-text py-2 text-center">
 							<h5><?php echo $row2['CoursName']; ?></h5>
-							<a class="btn btn-danger py-1" style="border-radius:0;" href="./lessin_video.php?CoursID=<?php echo $row1['CoursID']; ?>&MavzuID=<?php echo $row3['MavzuID']; ?>">Darslarni boshlash</a>
+							<a class="btn btn-outline-danger py-1" style="border-radius:0;font-weight:700" href="./lessin_video.php?CoursID=<?php echo $row1['CoursID']; ?>&MavzuID=<?php echo $row3['MavzuID']; ?>">Darslarni boshlash</a>
 						</div>
 					</div>
 				</div>
@@ -147,8 +144,8 @@
 	<section class="banner-section spad">
 		<div class="container">
 			<div class="section-title mb-0 pb-2">
-				<h2>Sizni qiziqtirgan kurslarni toping</h2>
-				<p>Berilgan barcha kurslarni ko'rib chiqing. Atko.uz keng qamrovli bo'lib, sizni qiziqtirgan va kerakli kursni albatta topa olasiz.</p>
+				<h2>Sizni qiziqtirgan kurslarni toping!!!</h2>
+				<p>Berilgan barcha kurslarni ko'rib chiqing. Atko.tech keng qamrovli bo'lib, sizni qiziqtirgan va kerakli kursni albatta topa olasiz.</p>
 			</div>
 			<div class="text-center pt-5">
 				<a href="courses.php" class="site-btn">Barcha kurslar</a>

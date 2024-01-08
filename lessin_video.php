@@ -52,7 +52,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -81,7 +80,7 @@
 		</div>
 	</header>
 
-	<div class="page-info-section set-bg" data-setbg="img/page-bg/3.jpg">
+	<div class="page-info-section set-bg mb-0" data-setbg="img/page-bg/3.jpg">
 		<div class="container">
 			<div class="site-breadcrumb">
 				<h2 class="text-white">Kurs video</h2>
@@ -94,7 +93,7 @@
 
 	<section class="search-section ss-other-page">
 		<div class="container">
-			<div class="search-warp p-1 py-3 pt-5" style="background-color: antiquewhite;">
+			<div class="search-warp p-1 py-3 pt-5 m-0" style="background-color: antiquewhite;">
 				<div class="section-title text-white">
 					<h2><span><?php echo $row2['CoursName']; ?></span></h2>
 				</div>
@@ -116,7 +115,7 @@
 		</div>
 	</section>
 
-	<section class="blog-page spad pb-0">
+	<section class="blog-page spad pb-0 mt-0 pt-4">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9">
@@ -124,14 +123,14 @@
 						<video id='myvideo' controls style="width:100%;border:3px solid red;" controlsList="nodownload">
                             <source src="video/<?php echo $row1['Video']; ?>" type="video/mp4">
                         </video>
-						<h3><?php echo $MavzuName; ?></h3>
+						<h3 class="p-0 my-2"><?php echo $MavzuName; ?></h3>
 						<p><?php echo $MavzuAbout; ?></p>
 						<div class="row mt-5">
                             <div class="col-6">
-                                <a href="lissen_test.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
+                                <a href="lissen_test.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzuga oid testlar</a>
                             </div>
                             <div class="col-6">
-							    <a href="lessin_lugat.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid lug'atlar</a>
+							    <a href="lessin_lugat.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzuga oid lug'atlar</a>
                             </div>
                         </div>
 					</div>

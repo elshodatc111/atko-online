@@ -52,7 +52,6 @@
 				<a href="https://t.me/atko_teams"><i class="fa fa-telegram" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.facebook.com/atkoteams/"><i class="fa fa-facebook" style="font-size:16px;margin-left:10px;color:white"></i></a>
 				<a href="https://www.instagram.com/atko_teams/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" style="font-size:16px;margin-left:10px;color:white"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-youtube" style="font-size:16px;margin-left:10px;color:white"></i></a>
 			</div>
 		</div>
 	</div>
@@ -116,7 +115,7 @@
 		</div>
 	</section>
 
-	<section class="blog-page spad pb-0">
+	<section class="blog-page spad pb-0 mt-0 pt-4">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-9">
@@ -130,13 +129,12 @@
 									echo $MavzuLugat;
 								}
 							?></p>
-
 						<div class="row mt-5">
 							<div class="col-6">
-                                <a href="lissen_test.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga oid testlar</a>
+                                <a href="lissen_test.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzuga oid testlar</a>
                             </div>
                             <div class="col-6">
-							    <a href="lessin_video.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-danger py-3">Mavzuga videosi</a>
+							    <a href="lessin_video.php?CoursID=<?php echo $_GET['CoursID']; ?>&MavzuID=<?php echo $_GET['MavzuID']; ?>" class="w-100 btn btn-outline-danger py-3" style="border-radius:0;font-weight:700">Mavzuga videosi</a>
                             </div>
                         </div>
 					</div>

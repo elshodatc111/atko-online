@@ -76,6 +76,7 @@
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
 				<div class="my-5 py-5 px-4" style="background-color:#EDF4F6">
+				<?php echo $_COOKIE['code']; ?>
 					<h2 style="color:#5F615F;" class="mb-3"><span>Kirish</span></h2>
 					<h4 class="text-danger w-100 text-center" style="<?php if(!isset($_GET['reg'])){echo "display:none";} ?>">Telefon raqam ro'yhatdan o'tmagan. Oldin ro'yhatdan o'ting.</h4>
 					<form action="./config/login/login.php" method="POST" class="text-center" style="display:<?php if(isset($_COOKIE['code'])){echo 'none;';} ?>">
